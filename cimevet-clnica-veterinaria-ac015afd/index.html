@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIMEVET CLÍNICA VETERINARIA | Cuidado Profesional en Laureles, Medellín</title>
+    <meta name="description" content="Atención veterinaria de alta calidad en Laureles, Medellín. Más de 300 opiniones avalan nuestro compromiso con la salud de tu mascota.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5', // indigo-600
+                        secondary: '#f5f7ff', // indigo-50
+                        accent: '#6366f1', // indigo-500
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-primary {
+            @apply bg-primary hover:bg-accent text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2;
+        }
+        .card-service {
+            @apply bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-primary/20 hover:shadow-xl transition-all duration-300;
+        }
+    </style>
+</head>
+<body x-data="{ mobileMenu: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)" class="bg-white text-slate-800 font-sans antialiased">
+
+    <!-- NAVBAR -->
+    <nav :class="scrolled ? 'glass py-3' : 'bg-transparent py-5'" class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-2 group">
+                        <div class="bg-primary p-2 rounded-lg">
+                            <i class="fa-solid fa-shield-dog text-white text-xl"></i>
+                        </div>
+                        <span class="font-extrabold text-xl tracking-tight" :class="scrolled ? 'text-slate-900' : 'text-slate-900 md:text-white'">CIMEVET</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="font-medium hover:text-primary transition-colors" :class="scrolled ? 'text-slate-600' : 'text-white/90'">Inicio</a>
+                    <a href="#servicios" class="font-medium hover:text-primary transition-colors" :class="scrolled ? 'text-slate-600' : 'text-white/90'">Servicios</a>
+                    <a href="#nosotros" class="font-medium hover:text-primary transition-colors" :class="scrolled ? 'text-slate-600' : 'text-white/90'">Nosotros</a>
+                    <a href="#ubicacion" class="font-medium hover:text-primary transition-colors" :class="scrolled ? 'text-slate-600' : 'text-white/90'">Contacto</a>
+                    <a href="https://wa.me/576045913884" target="_blank" class="bg-primary text-white px-6 py-2.5 rounded-full font-bold hover:bg-accent transition-all shadow-md">
+                        <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="p-2 rounded-md transition-colors" :class="scrolled ? 'text-slate-900' : 'text-slate-900 md:text-white'">
+                        <i class="fa-solid" :class="mobileMenu ? 'fa-xmark' : 'fa-bars-staggered'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak x-transition class="md:hidden absolute w-full bg-white shadow-xl border-t border-slate-100 p-4 space-y-4">
+            <a @click="mobileMenu = false" href="#inicio" class="block px-4 py-2 font-medium text-slate-700">Inicio</a>
+            <a @click="mobileMenu = false" href="#servicios" class="block px-4 py-2 font-medium text-slate-700">Servicios</a>
+            <a @click="mobileMenu = false" href="#nosotros" class="block px-4 py-2 font-medium text-slate-700">Nosotros</a>
+            <a @click="mobileMenu = false" href="#ubicacion" class="block px-4 py-2 font-medium text-slate-700">Contacto</a>
+            <a href="https://wa.me/576045913884" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-bold">
+                <i class="fa-brands fa-whatsapp mr-2"></i>Agendar por WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80" alt="Veterinaria CIMEVET" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/60 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-primary/20 border border-primary/30 text-indigo-100 px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+                    </span>
+                    <span class="text-sm font-semibold tracking-wide uppercase">Veterinaria en Laureles</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+                    Amamos a tu mascota <span class="text-primary italic">tanto como tú</span>.
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 leading-relaxed">
+                    En CIMEVET Clínica Veterinaria ofrecemos atención médica de excelencia, tecnología avanzada y un trato humano inigualable en Medellín.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/576045913884" class="btn-primary text-lg px-10 py-4">
+                        <i class="fa-regular fa-calendar-check text-xl"></i>
+                        Agendar Cita Ahora
+                    </a>
+                    <a href="#servicios" class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white font-bold py-4 px-10 rounded-full transition-all text-center">
+                        Nuestros Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="bg-white border-b border-slate-100 py-8 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <div class="flex flex-col items-center">
+                <div class="flex text-yellow-400 mb-1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="text-sm font-bold text-slate-900">4.2/5 Reputación</p>
+            </div>
+            <div class="h-8 w-px bg-slate-200 hidden md:block"></div>
+            <p class="text-slate-600 font-medium">
+                <i class="fa-solid fa-heart text-red-500 mr-2"></i>
+                Excelencia comprobada en <span class="font-bold text-slate-900">Google Maps</span>
+            </p>
+            <div class="h-8 w-px bg-slate-200 hidden md:block"></div>
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-users text-primary"></i>
+                <p class="text-slate-600 font-medium"><span class="font-bold text-slate-900">306</span> opiniones de clientes felices</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="servicios" class="py-24 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-3">¿Qué hacemos por ellos?</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900">Servicios Veterinarios Integrales</h3>
+                <div class="w-20 h-1.5 bg-primary mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="card-service group">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-stethoscope text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Consulta Médica</h4>
+                    <p class="text-slate-600 leading-relaxed">Revisiones preventivas y diagnóstico clínico detallado para asegurar el bienestar de tu compañero.</p>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="card-service group">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-syringe text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Vacunación</h4>
+                    <p class="text-slate-600 leading-relaxed">Esquemas completos de vacunación y desparasitación para protegerlos de enfermedades comunes.</p>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="card-service group">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-scissors text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Peluquería Canina</h4>
+                    <p class="text-slate-600 leading-relaxed">Grooming profesional con amor. Baño, corte y cuidado estético para todas las razas.</p>
+                </div>
+                <!-- Servicio 4 -->
+                <div class="card-service group">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-microscope text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Laboratorio</h4>
+                    <p class="text-slate-600 leading-relaxed">Exámenes de sangre y diagnósticos rápidos con equipos de última generación.</p>
+                </div>
+                <!-- Servicio 5 -->
+                <div class="card-service group">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-kit-medical text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Cirugías</h4>
+                    <p class="text-slate-600 leading-relaxed">Procedimientos quirúrgicos con protocolos de anestesia seguros y monitoreo constante.</p>
+                </div>
+                <!-- Servicio 6 -->
+                <div class="card-service group">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-pills text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Farmacia</h4>
+                    <p class="text-slate-600 leading-relaxed">Contamos con un amplio stock de medicamentos y alimentos especializados para el tratamiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US SECTION -->
+    <section id="nosotros" class="py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-3">Por qué elegirnos</h2>
+                    <h3 class="text-4xl font-extrabold text-slate-900 mb-8 leading-tight italic">Más de una década cuidando las mascotas de Laureles</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center mt-1">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900">Ubicación Privilegiada</h4>
+                                <p class="text-slate-600">Estamos en el corazón de Laureles - Estadio, de fácil acceso para toda la comunidad.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center mt-1">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900">Equipo Altamente Calificado</h4>
+                                <p class="text-slate-600">Veterinarios con años de experiencia y una profunda pasión por la salud animal.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center mt-1">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900">Equipos Modernos</h4>
+                                <p class="text-slate-600">Invertimos constantemente en tecnología para diagnósticos más rápidos y precisos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <a href="https://wa.me/576045913884" class="btn-primary inline-flex">
+                            Conocer más sobre nosotros
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="absolute -inset-4 bg-indigo-200 rounded-2xl rotate-3 -z-10"></div>
+                    <div class="bg-slate-900 rounded-2xl shadow-2xl overflow-hidden aspect-video lg:aspect-square">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Equipo Veterinario" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-secondary overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 italic text-primary">Lo que dicen nuestros clientes</h3>
+                <p class="text-slate-600 max-w-2xl mx-auto">La confianza de nuestros pacientes y sus familias es nuestro mayor orgullo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6">"Excelente servicio. Llevé a mi gata por una urgencia y el trato fue impecable. Son muy profesionales y empáticos en momentos difíciles."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center font-bold text-primary">MC</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Mariana C.</p>
+                            <p class="text-xs text-slate-500">Cliente Google Maps</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6">"La mejor veterinaria de Laureles. Llevo a mis perros desde hace años y siempre nos han dado un servicio de primera calidad."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center font-bold text-primary">JR</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Juan Ricardo</p>
+                            <p class="text-xs text-slate-500">Cliente Local</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6">"Muy honestos con los precios y los tratamientos. No te hacen gastar de más y se nota que aman a los animales."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center font-bold text-primary">AM</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Andrea Mesa</p>
+                            <p class="text-xs text-slate-500">Propietaria de 'Luna'</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="ubicacion" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-6">Visítanos hoy mismo</h3>
+                    <p class="text-slate-600 mb-10 text-lg leading-relaxed">
+                        Estamos ubicados en una zona estratégica de Laureles. Visítanos o llámanos para cualquier duda sobre la salud de tu mascota.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900">Dirección</p>
+                                <p class="text-slate-600">Cl. 47D #77b-07, Laureles - Estadio, Medellín</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900">Horarios de Atención</p>
+                                <div class="text-slate-600">
+                                    <ul class="space-y-1">
+                                        <li><span class="font-medium">Lunes - Viernes:</span> 9:00 AM - 6:00 PM</li>
+                                        <li><span class="font-medium">Sábado:</span> 9:00 AM - 2:00 PM</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900">Teléfono</p>
+                                <a href="tel:576045913884" class="text-primary font-bold text-lg hover:underline">+57 604 5913884</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 flex flex-wrap gap-4">
+                        <a href="tel:576045913884" class="btn-primary">
+                            <i class="fa-solid fa-phone-volume"></i> Llamar Ahora
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=CIMEVET+CL%C3%8DNICA+VETERINARIA+Cl.+47D+%2377b-07%2C+Laureles+-+Estadio%2C+Medell%C3%ADn%2C+Laureles%2C+Medell%C3%ADn%2C+Antioquia%2C+Colombia" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-full transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-route"></i> ¿Cómo llegar?
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-96 lg:h-[500px] rounded-3xl shadow-2xl overflow-hidden bg-slate-100 border border-slate-200">
+                    <iframe src="https://www.google.com/maps?q=CIMEVET+CL%C3%8DNICA+VETERINARIA+Cl.+47D+%2377b-07%2C+Laureles+-+Estadio%2C+Medell%C3%ADn%2C+Laureles%2C+Medell%C3%ADn%2C+Antioquia%2C+Colombia&hl=es&z=14&output=embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen="" loading="lazy" onerror="this.style.display='none'"></iframe>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-[-1]">
+                        <i class="fa-solid fa-map-location-dot text-4xl text-slate-300 mb-2"></i>
+                        <p class="text-slate-500 text-sm mb-4">Haz clic abajo para ver la ubicación exacta</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=CIMEVET+CL%C3%8DNICA+VETERINARIA+Cl.+47D+%2377b-07%2C+Laureles+-+Estadio%2C+Medell%C3%ADn%2C+Laureles%2C+Medell%C3%ADn%2C+Antioquia%2C+Colombia" target="_blank" class="bg-primary text-white py-2 px-4 text-xs font-semibold rounded-lg shadow-lg">Ver en Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="bg-primary p-2 rounded-lg">
+                            <i class="fa-solid fa-shield-dog text-white"></i>
+                        </div>
+                        <span class="font-extrabold text-2xl text-white">CIMEVET</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Cuidamos a los peluditos de Laureles con profesionalismo y todo nuestro corazón. Tu confianza es nuestra mayor recompensa.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#inicio" class="hover:text-primary transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-primary transition-colors">Servicios</a></li>
+                        <li><a href="#nosotros" class="hover:text-primary transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#ubicacion" class="hover:text-primary transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Contáctanos</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-primary"></i>
+                            <span>+57 604 5913884</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-primary"></i>
+                            <span>contacto@cimevetmedellin.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            <span>Medellín, Antioquia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 text-center text-sm text-slate-500 italic">
+                <p>&copy; 2025 CIMEVET CLÍNICA VETERINARIA. Todos los derechos reservados. Diseñado para la salud de tu mascota.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/576045913884" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition-transform active:scale-95 group">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-full mr-3 bg-white text-slate-900 text-sm font-bold py-2 px-4 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-100">
+            ¿En qué podemos ayudarte?
+        </span>
+    </a>
+
+</body>
+</html>
