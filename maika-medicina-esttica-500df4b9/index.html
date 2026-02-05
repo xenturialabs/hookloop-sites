@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maika Medicina Estética | Skin Care Clinic en El Poblado, Medellín</title>
+    <meta name="description" content="Especialistas en Skin Care Clinic en El Poblado, Medellín. Excelencia médica y resultados naturales para tu piel. Agende su cita hoy.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0f9f9',
+                            100: '#d9f2f2',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(20, 184, 166, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #0d9488, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans leading-relaxed" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-extrabold text-teal-600 tracking-tight">MAIKA</span>
+                    <span class="ml-2 text-sm font-medium text-slate-500 uppercase tracking-widest hidden sm:block">Medicina Estética</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center font-medium text-slate-600">
+                    <a href="#inicio" class="hover:text-teal-600 transition-colors">Inicio</a>
+                    <a href="#servicios" class="hover:text-teal-600 transition-colors">Servicios</a>
+                    <a href="#nosotros" class="hover:text-teal-600 transition-colors">Nosotros</a>
+                    <a href="#ubicacion" class="hover:text-teal-600 transition-colors">Ubicación</a>
+                    <a href="https://wa.me/573136143976" target="_blank" class="bg-[#25D366] text-white px-6 py-2.5 rounded-full flex items-center gap-2 hover:bg-[#1eb956] transition-all shadow-md hover:shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 hover:text-teal-600 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden bg-white border-b border-teal-50 shadow-xl" x-cloak>
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#inicio" @click="mobileMenu = false" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-teal-50 rounded-lg">Inicio</a>
+                <a href="#servicios" @click="mobileMenu = false" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-teal-50 rounded-lg">Servicios</a>
+                <a href="#nosotros" @click="mobileMenu = false" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-teal-50 rounded-lg">Nosotros</a>
+                <a href="#ubicacion" @click="mobileMenu = false" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-teal-50 rounded-lg">Ubicación</a>
+                <a href="https://wa.me/573136143976" class="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-4 py-4 rounded-lg font-bold mt-4 shadow-md">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    AGENDAR POR WHATSAPP
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="inicio" class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-slate-900">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=LgZYzE566lP3htVAM3HXsQ&cb_client=maps_sv.tactile.gps&w=1920&h=1080&yaw=213.66768&pitch=0&thumbfov=100" 
+                 class="w-full h-full object-cover object-center scale-105" alt="Maika Medicina Estética">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl text-white">
+                <div class="inline-flex items-center space-x-2 bg-teal-600/20 backdrop-blur-md border border-teal-500/30 px-4 py-2 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></span>
+                    <span class="text-sm font-semibold tracking-wide uppercase">Skin Care Clinic en Medellín</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6">
+                    Tu piel merece <span class="text-teal-400">excelencia</span> médica
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed font-light">
+                    En <span class="text-white font-medium">Maika Medicina Estética</span>, combinamos ciencia y arte para resaltar tu belleza natural con tratamientos personalizados en el corazón de El Poblado.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/573136143976" class="bg-teal-600 hover:bg-teal-500 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all transform hover:-translate-y-1 shadow-xl hover:shadow-teal-600/20 text-center">
+                        Agendar Cita Ahora
+                    </a>
+                    <a href="tel:+573136143976" class="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 px-10 py-5 rounded-2xl text-lg font-bold transition-all text-center flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUST STRIP -->
+    <section class="relative z-20 -mt-10 max-w-5xl mx-auto px-4">
+        <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-50">
+            <div class="flex items-center gap-5">
+                <div class="bg-teal-50 p-4 rounded-2xl">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Color_Icon.svg" class="w-10 h-10" alt="Google Logo">
+                </div>
+                <div>
+                    <div class="flex text-yellow-400 mb-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-slate-900 font-bold text-lg">4.4 Estrellas <span class="text-slate-400 font-normal text-sm ml-1">(25 opiniones)</span></p>
+                </div>
+            </div>
+            <div class="h-px md:h-12 w-full md:w-px bg-slate-100"></div>
+            <p class="text-slate-600 font-medium text-center md:text-left italic">
+                "Excelencia comprobada en Google Maps"
+            </p>
+            <div class="hidden lg:block">
+                <div class="flex -space-x-3">
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-xs font-bold">LG</div>
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-teal-100 flex items-center justify-center text-xs font-bold text-teal-600">CB</div>
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-xs font-bold">+23</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-teal-600 font-bold tracking-widest uppercase text-sm mb-3">Nuestra Especialidad</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-slate-900">Especialistas en Skin Care Clinic</h3>
+                <div class="w-20 h-1.5 bg-teal-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Service 1 -->
+                <div class="group p-10 bg-teal-50 rounded-3xl border border-transparent hover:border-teal-200 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-xl">
+                    <div class="w-16 h-16 bg-white text-teal-600 rounded-2xl flex items-center justify-center mb-8 shadow-md group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-user-md text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4 text-slate-900 leading-tight">Medicina Estética Integral</h4>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Evaluación profunda y profesional de las necesidades específicas de tu piel mediante tecnología avanzada.
+                    </p>
+                    <ul class="space-y-3 text-slate-500 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-500"></i> Diagnóstico clínico</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-500"></i> Plan personalizado</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group p-10 bg-teal-50 rounded-3xl border border-transparent hover:border-teal-200 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-xl">
+                    <div class="w-16 h-16 bg-white text-teal-600 rounded-2xl flex items-center justify-center mb-8 shadow-md group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-spa text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4 text-slate-900 leading-tight">Skin Care Clinic</h4>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Tratamientos especializados diseñados para revitalizar, hidratar y restaurar la salud natural de tu cutis.
+                    </p>
+                    <ul class="space-y-3 text-slate-500 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-500"></i> Rejuvenecimiento facial</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-500"></i> Limpieza profunda</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group p-10 bg-teal-50 rounded-3xl border border-transparent hover:border-teal-200 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-xl">
+                    <div class="w-16 h-16 bg-white text-teal-600 rounded-2xl flex items-center justify-center mb-8 shadow-md group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-wand-magic-sparkles text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4 text-slate-900 leading-tight">Resultados de Vanguardia</h4>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Equipos de última generación y productos de grado médico para asegurar efectos visibles y duraderos.
+                    </p>
+                    <ul class="space-y-3 text-slate-500 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-500"></i> Tecnología médica</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-500"></i> Protocolos seguros</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="nosotros" class="py-24 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Content -->
+                <div class="lg:w-1/2 order-2 lg:order-1">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight">
+                        ¿Por qué elegir <span class="text-teal-600">Maika</span> para tu bienestar?
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-teal-600">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xl font-bold text-slate-900 mb-2">Atención Ética y Cuidadosa</h5>
+                                <p class="text-slate-600 leading-relaxed">Nuestro equipo médico se enfoca en tu bienestar real, siempre priorizando la salud de tu piel sobre cualquier tendencia.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-teal-600">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xl font-bold text-slate-900 mb-2">Ubicación Privilegiada</h5>
+                                <p class="text-slate-600 leading-relaxed">Situados en Santa María de Los Ángeles, El Poblado, ofrecemos un entorno tranquilo, privado y accesible.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-teal-600">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xl font-bold text-slate-900 mb-2">Instalaciones Modernas</h5>
+                                <p class="text-slate-600 leading-relaxed">Equipados con amenidades premium incluyendo baños de género neutro y total comodidad para tu visita.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="mt-12 p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Métodos de Pago Aceptados</p>
+                        <div class="flex flex-wrap gap-4 text-slate-700 font-medium">
+                            <span class="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-lg border border-slate-100">
+                                <i class="fa-solid fa-credit-card text-teal-600"></i> Tarjetas de Crédito
+                            </span>
+                            <span class="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-lg border border-slate-100">
+                                <i class="fa-solid fa-money-check text-teal-600"></i> Débito
+                            </span>
+                            <span class="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-lg border border-slate-100">
+                                <i class="fa-solid fa-mobile-screen-button text-teal-600"></i> Pagos Móviles NFC
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="lg:w-1/2 order-1 lg:order-2 relative">
+                    <div class="absolute -inset-4 bg-teal-200/50 rounded-[3rem] blur-2xl z-0"></div>
+                    <div class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipOcDTYFQ_0E_AeUNVz4DkfHCXONbfbxPCrUVkNL=w1920-h1080-k-no" 
+                             class="w-full h-[600px] object-cover" 
+                             alt="Instalaciones Maika Medicina Estética">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900">Lo que dicen nuestros pacientes</h3>
+                <p class="text-slate-500 mt-4">La satisfacción de quienes confían en nosotros es nuestra mejor garantía.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-teal-50/50 p-10 rounded-3xl relative border border-teal-100">
+                    <i class="fa-solid fa-quote-left text-5xl text-teal-200 absolute top-8 left-8"></i>
+                    <div class="relative z-10">
+                        <div class="flex text-yellow-400 mb-6">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-lg text-slate-700 italic mb-8 leading-relaxed">
+                            "Me va encantando mi resultado y solo llevo 15 dias!!. El Dr super cuidadoso , en el procedimiento siempre es pendiente de ti. Las chicas son super atentas y hacen muy buen trabajo. Me voy feliz."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold">LG</div>
+                            <div>
+                                <h6 class="font-bold text-slate-900">Lina Gallego</h6>
+                                <p class="text-xs text-slate-500 uppercase tracking-widest">Paciente Verificada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-teal-50/50 p-10 rounded-3xl relative border border-teal-100">
+                    <i class="fa-solid fa-quote-left text-5xl text-teal-200 absolute top-8 left-8"></i>
+                    <div class="relative z-10">
+                        <div class="flex text-yellow-400 mb-6">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-lg text-slate-700 italic mb-8 leading-relaxed">
+                            "Me gustó este centro de estética 👌 está muy bien ubicado, amable la recepcionista y excelente trabajo por parte del doctor."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold">CB</div>
+                            <div>
+                                <h6 class="font-bold text-slate-900">Carol Bedoya</h6>
+                                <p class="text-xs text-slate-500 uppercase tracking-widest">Paciente Verificada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section id="ubicacion" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h3 class="text-3xl md:text-5xl font-extrabold mb-8">Visítanos en <span class="text-teal-400">El Poblado</span></h3>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex gap-6">
+                            <div class="text-teal-400 text-2xl mt-1"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">Dirección</h5>
+                                <p class="text-slate-400 text-lg">Cl. 15 Sur #43A - 47, El Poblado, Medellín, Antioquia, Colombia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="text-teal-400 text-2xl mt-1"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-4">Horarios de Atención</h5>
+                                <ul class="space-y-2 text-slate-400">
+                                    <li class="flex justify-between w-64"><span>Lunes a Viernes:</span> <span class="text-white">8:00 AM - 5:00 PM</span></li>
+                                    <li class="flex justify-between w-64"><span>Sábado:</span> <span class="text-white">8:00 AM - 12:00 PM</span></li>
+                                    <li class="flex justify-between w-64 text-red-400"><span>Domingo:</span> <span>Cerrado</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="text-teal-400 text-2xl mt-1"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">Teléfono Directo</h5>
+                                <p class="text-slate-400 text-lg">+57 313 6143976</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://www.google.com/maps/search/?api=1&query=Maika%20Medicina%20Estética&query_place_id=ChIJ-UWNeX2CRo4R4ajbGEyT3no" target="_blank" class="inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold hover:bg-teal-400 hover:text-white transition-all transform hover:scale-105 shadow-xl">
+                        <i class="fa-solid fa-route"></i>
+                        ¿Cómo llegar?
+                    </a>
+                </div>
+
+                <!-- Map -->
+                <div class="relative w-full h-[450px] rounded-[2.5rem] shadow-2xl overflow-hidden bg-slate-800 border-4 border-slate-800/50">
+                    <iframe src="https://www.google.com/maps?q=6.191311,-75.57718&hl=es&z=16&output=embed" 
+                            class="absolute inset-0 w-full h-full border-0 grayscale-[0.2] contrast-[1.1]" 
+                            allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-12 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <span class="text-2xl font-black text-teal-600 tracking-tighter">MAIKA</span>
+                    <p class="text-slate-500 mt-2 font-medium">Cuidando tu piel, resaltando tu esencia.</p>
+                </div>
+                
+                <div class="text-slate-400 text-sm text-center md:text-right">
+                    <p>© 2025 Maika Medicina Estética. Todos los derechos reservados.</p>
+                    <p class="mt-1">Medellín - El Poblado, Colombia.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP -->
+    <a href="https://wa.me/573136143976" target="_blank" 
+       class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all group animate-bounce md:animate-none">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs py-2 px-4 rounded-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+            ¿En qué podemos ayudarte?
+        </span>
+    </a>
+
+</body>
+</html>
