@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alviva Clínica Estética | Wellness & Facial Spa en El Poblado</title>
+    <meta name="description" content="Descubre el bienestar en Alviva Clínica Estética. Especialistas en Wellness center, facial spa y masajes en Medellín, El Poblado.">
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            50: '#f5f3ff',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        whatsapp: '#25D366',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hero-overlay {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400">
+                        Alviva Clínica Estética
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-slate-700 hover:text-purple-600 font-medium transition">Inicio</a>
+                    <a href="#servicios" class="text-slate-700 hover:text-purple-600 font-medium transition">Servicios</a>
+                    <a href="#nosotros" class="text-slate-700 hover:text-purple-600 font-medium transition">Por qué Elegirnos</a>
+                    <a href="#contacto" class="text-slate-700 hover:text-purple-600 font-medium transition">Contacto</a>
+                    <a href="https://wa.me/5743210863" target="_blank" class="bg-whatsapp text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-700 p-2">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-cloak
+             class="md:hidden bg-white border-t border-slate-100 shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#inicio" @click="mobileMenu = false" class="block px-3 py-3 text-base font-medium text-slate-700">Inicio</a>
+                <a href="#servicios" @click="mobileMenu = false" class="block px-3 py-3 text-base font-medium text-slate-700">Servicios</a>
+                <a href="#nosotros" @click="mobileMenu = false" class="block px-3 py-3 text-base font-medium text-slate-700">Por qué Elegirnos</a>
+                <a href="#contacto" @click="mobileMenu = false" class="block px-3 py-3 text-base font-medium text-slate-700">Contacto</a>
+                <a href="https://wa.me/5743210863" target="_blank" class="w-full mt-4 bg-whatsapp text-white px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipOwodpx9eKrtSYTf66xm4ijFbVcdA4MxN54DXk=w1920-h1080-k-no" alt="Alviva Clínica Estética" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-purple-500/20 text-purple-300 px-4 py-1 rounded-full text-sm font-semibold tracking-wider uppercase mb-4 backdrop-blur-sm border border-purple-500/30">
+                    Bienvenido a Alviva
+                </span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+                    Realza tu belleza natural y <span class="text-purple-400">renueva tu energía</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl">
+                    En Alviva Clínica Estética combinamos ciencia y bienestar para brindarte los mejores tratamientos faciales y corporales en el corazón de El Poblado.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="https://wa.me/5743210863" class="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-2xl font-bold text-lg transition transform hover:scale-105 shadow-xl flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-calendar-check"></i> Agendar Cita
+                    </a>
+                    <a href="tel:+5743210863" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md rounded-2xl font-bold text-lg transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i> Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="relative z-20 -mt-10 md:-mt-12 max-w-4xl mx-auto px-4">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-100">
+            <div class="flex items-center gap-4">
+                <div class="bg-blue-50 p-3 rounded-full">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Reference_icon.svg" class="w-8 h-8" alt="Google">
+                </div>
+                <div>
+                    <div class="flex text-amber-400 gap-1 mb-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 font-medium">Excelencia comprobada en <span class="font-bold text-slate-900">Google Maps</span></p>
+                </div>
+            </div>
+            <div class="h-px md:h-12 w-full md:w-px bg-slate-100"></div>
+            <div class="text-center md:text-right">
+                <p class="text-3xl font-extrabold text-slate-900 leading-none">4.6 / 5</p>
+                <p class="text-slate-500 text-sm mt-1">64 Opiniones Reales</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section id="servicios" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-purple-600 font-bold uppercase tracking-widest text-sm mb-3">Nuestros Servicios</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900">Tratamientos Especializados</h3>
+                <div class="w-20 h-1.5 bg-purple-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-spa text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Wellness Center</h4>
+                    <p class="text-slate-600 leading-relaxed">Un espacio integral diseñado para equilibrar tu mente y cuerpo a través de terapias de bienestar personalizadas.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-face-smile-beam text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Facial Spa</h4>
+                    <p class="text-slate-600 leading-relaxed">Tratamientos avanzados de limpieza, hidratación y rejuvenecimiento facial para resaltar tu luminosidad natural.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-hands-holding-child text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Massage Therapist</h4>
+                    <p class="text-slate-600 leading-relaxed">Masajes terapéuticos y relajantes realizados por expertos para aliviar el estrés y la tensión muscular.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="nosotros" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="flex-1 w-full">
+                    <h2 class="text-purple-600 font-bold uppercase tracking-widest text-sm mb-3">Tu Bienestar Primero</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 leading-tight">¿Por qué elegir Alviva Clínica Estética?</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Ubicación Exclusiva</h4>
+                                <p class="text-slate-600">Situados en el corazón de El Poblado, ofreciendo comodidad y un ambiente tranquilo.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Accesibilidad Total</h4>
+                                <p class="text-slate-600">Instalaciones con acceso para silla de ruedas pensando en la comodidad de todos nuestros pacientes.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Facilidad de Pago</h4>
+                                <p class="text-slate-600">Aceptamos tarjetas de crédito, débito y pagos móviles NFC para tu mayor conveniencia.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 bg-slate-50 px-4 py-2 rounded-lg border border-slate-100">
+                            <i class="fa-solid fa-credit-card text-purple-500"></i> Tarjetas Crédito/Débito
+                        </div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 bg-slate-50 px-4 py-2 rounded-lg border border-slate-100">
+                            <i class="fa-solid fa-mobile-screen-button text-purple-500"></i> NFC / Apple Pay
+                        </div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 bg-slate-50 px-4 py-2 rounded-lg border border-slate-100">
+                            <i class="fa-solid fa-wheelchair text-purple-500"></i> Accesible
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex-1 relative w-full">
+                    <div class="absolute -inset-4 bg-purple-100 rounded-3xl -rotate-2"></div>
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipMju_t6keRoKSdHoWSMqP2vFhlUx1uQ6Ra-T10=w1920-h1080-k-no" alt="Instalaciones Alviva" class="relative rounded-3xl shadow-2xl object-cover w-full h-[500px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900">Lo que dicen nuestros clientes</h3>
+                <div class="w-20 h-1.5 bg-purple-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md">
+                    <div class="flex text-amber-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">"Hola en que numero se pueden localizar"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold">X</div>
+                        <p class="font-bold text-slate-900">Xiomara Andrea Mira Luna</p>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md">
+                    <div class="flex text-amber-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">"Excelente servicio y atención. Muy profesionales en todo lo que hacen."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold">K</div>
+                        <p class="font-bold text-slate-900">Karen Guzman</p>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md">
+                    <div class="flex text-amber-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">"Un lugar maravilloso para relajarse. Los resultados de los tratamientos son increíbles."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold">A</div>
+                        <p class="font-bold text-slate-900">Assel K</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="contacto" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h2 class="text-purple-600 font-bold uppercase tracking-widest text-sm mb-3">Ubicación</h2>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-8">Encuéntranos en Medellín</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-slate-50 text-purple-600 rounded-xl flex items-center justify-center shadow-sm">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-lg mb-1">Dirección</p>
+                                <p class="text-slate-600 leading-relaxed">Cl. 7 #39-197, El Poblado, Medellín, El Poblado, Medellín, Antioquia, Colombia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-slate-50 text-purple-600 rounded-xl flex items-center justify-center shadow-sm">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div class="w-full">
+                                <p class="font-bold text-slate-900 text-lg mb-3">Horario de Atención</p>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-600">
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class="font-medium text-slate-800">Lunes:</span> 9 AM - 7 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class="font-medium text-slate-800">Martes:</span> 9 AM - 7 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class="font-medium text-slate-800">Miércoles:</span> 9 AM - 7 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class="font-medium text-slate-800">Jueves:</span> 9 AM - 7 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class="font-medium text-slate-800">Viernes:</span> 9 AM - 6 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class="font-medium text-slate-800">Sábado:</span> 9 AM - 1 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1 text-red-400"><span class="font-medium">Domingo:</span> Cerrado</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="https://wa.me/5743210863" class="flex-1 bg-whatsapp text-white px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition shadow-lg">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> Hablar con un Asesor
+                            </a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Alviva%20Cl%C3%ADnica%20Est%C3%A9tica" target="_blank" class="flex-1 bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition shadow-lg">
+                                <i class="fa-solid fa-map-location-dot"></i> Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full h-full min-h-[400px]">
+                    <div class="relative w-full h-full min-h-[450px] rounded-3xl shadow-2xl overflow-hidden bg-slate-100 border-8 border-white">
+                        <iframe src="https://www.google.com/maps?q=6.2062273,-75.57064&hl=es&z=14&output=embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                        <noscript>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Alviva%20Cl%C3%ADnica%20Est%C3%A9tica" target="_blank" class="flex items-center justify-center h-full text-purple-500 font-bold">Ver en Google Maps</a>
+                        </noscript>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-200 mb-6 block">
+                        Alviva Clínica Estética
+                    </span>
+                    <p class="text-slate-400 leading-relaxed max-w-sm">
+                        Especialistas en bienestar y estética en Medellín. Nuestro compromiso es tu satisfacción y salud integral.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="#inicio" class="hover:text-purple-400 transition">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-purple-400 transition">Servicios</a></li>
+                        <li><a href="#nosotros" class="hover:text-purple-400 transition">Por qué Elegirnos</a></li>
+                        <li><a href="#contacto" class="hover:text-purple-400 transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contacto Directo</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-purple-400"></i> +57 43210863
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-purple-400 mt-1"></i> El Poblado, Medellín, Colombia
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm">
+                <p>© 2025 Alviva Clínica Estética. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATERS -->
+    <a href="https://wa.me/5743210863" target="_blank" class="fixed bottom-6 right-6 z-[60] bg-whatsapp text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform animate-pulse-subtle">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
