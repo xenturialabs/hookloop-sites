@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Massage and Wax | Premium Massage Spa in Pasadena, CA</title>
+    <meta name="description" content="Experience ultimate relaxation at Lake Massage and Wax in Pasadena. Professional massage and waxing services tailored to your needs. Book your appointment today.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js CDN -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            50: '#f5f3ff',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        whatsapp: '#25D366',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-purple-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+                        Lake Massage & Wax
+                    </span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors">Home</a>
+                    <a href="#services" class="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors">Services</a>
+                    <a href="#why-choose-us" class="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors">Why Choose Us</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors">Contact</a>
+                    <a href="https://wa.me/16265293886" target="_blank" class="bg-whatsapp text-white px-5 py-2.5 rounded-full font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 hover:text-purple-600 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden bg-white border-b border-purple-100 absolute w-full shadow-xl" x-cloak>
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" @click="mobileMenu = false" class="block px-3 py-4 text-base font-medium text-slate-700 border-b border-slate-50">Home</a>
+                <a href="#services" @click="mobileMenu = false" class="block px-3 py-4 text-base font-medium text-slate-700 border-b border-slate-50">Services</a>
+                <a href="#why-choose-us" @click="mobileMenu = false" class="block px-3 py-4 text-base font-medium text-slate-700 border-b border-slate-50">Why Choose Us</a>
+                <a href="#contact" @click="mobileMenu = false" class="block px-3 py-4 text-base font-medium text-slate-700 border-b border-slate-50">Contact</a>
+                <div class="pt-4">
+                    <a href="https://wa.me/16265293886" class="w-full bg-whatsapp text-white px-5 py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        Message on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80" alt="Spa Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/30 text-purple-200 px-4 py-2 rounded-full mb-6 backdrop-blur-md">
+                    <i class="fa-solid fa-sparkles text-sm"></i>
+                    <span class="text-sm font-semibold tracking-wide uppercase">Relaxation Redefined</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+                    Rejuvenate Your Body and <span class="text-purple-400">Mind in Pasadena</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl">
+                    Experience the perfect blend of professional massage therapy and expert waxing services. Your sanctuary for wellness and beauty in the heart of Catalina Villas.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:6265293886" class="px-8 py-4 bg-purple-500 hover:bg-purple-600 text-white rounded-2xl font-bold text-lg transition-all shadow-xl shadow-purple-500/25 flex items-center justify-center gap-3 group">
+                        <i class="fa-solid fa-calendar-check group-hover:scale-110 transition-transform"></i>
+                        Book Appointment
+                    </a>
+                    <a href="tel:6265293886" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-2xl font-bold text-lg backdrop-blur-md transition-all flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone"></i>
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="relative z-20 -mt-12 max-w-5xl mx-auto px-4">
+        <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-around gap-6 border border-purple-50">
+            <div class="flex items-center gap-4">
+                <div class="flex flex-col">
+                    <div class="flex text-yellow-400 mb-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-slate-900 font-bold text-lg">4.5 Stars Excellence</p>
+                </div>
+            </div>
+            <div class="h-px w-full md:w-px md:h-12 bg-slate-100"></div>
+            <div class="text-center md:text-left">
+                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Trusted reviews</p>
+                <p class="text-slate-900 font-bold text-lg">23+ Happy Clients</p>
+            </div>
+            <div class="h-px w-full md:w-px md:h-12 bg-slate-100"></div>
+            <div class="flex items-center gap-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-8 h-8">
+                <span class="text-slate-900 font-bold">Proven on Google Maps</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-purple-500 font-bold uppercase tracking-widest text-sm mb-3">Professional Services</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900">What We Offer</h3>
+                <div class="w-20 h-1.5 bg-purple-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group p-8 bg-purple-50 rounded-3xl border border-transparent hover:border-purple-200 hover:bg-white hover:shadow-2xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-500 text-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Massage Spa</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Experience therapeutic bodywork designed to reduce stress, alleviate muscle tension, and promote deep relaxation in our tranquil environment.
+                    </p>
+                </div>
+
+                <!-- Service 2 (Inferred from name) -->
+                <div class="group p-8 bg-purple-50 rounded-3xl border border-transparent hover:border-purple-200 hover:bg-white hover:shadow-2xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-500 text-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hand-sparkles"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Professional Waxing</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Achieve silky-smooth skin with our gentle and effective waxing services. We prioritize your comfort and use high-quality products for all skin types.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group p-8 bg-purple-50 rounded-3xl border border-transparent hover:border-purple-200 hover:bg-white hover:shadow-2xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-500 text-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Wellness Therapy</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Customized sessions combining various techniques to address your specific health goals, ensuring a balanced body and peace of mind.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-choose-us" class="py-24 bg-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 leading-tight">
+                        Pasadena's Trusted Choice for <span class="text-purple-600">Premium Relaxation</span>
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center text-purple-600 shadow-sm">
+                                <i class="fa-solid fa-check-double"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-lg">Accessibility & Comfort</h5>
+                                <p class="text-slate-600">Wheelchair accessible entrance, parking lot, and restrooms for all our guests.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center text-purple-600 shadow-sm">
+                                <i class="fa-solid fa-credit-card"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-lg">Easy Payment Methods</h5>
+                                <p class="text-slate-600">We accept credit cards, debit cards, and NFC mobile payments for your convenience.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center text-purple-600 shadow-sm">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-lg">English Speaking Staff</h5>
+                                <p class="text-slate-600">Professional communication to ensure your needs are perfectly understood and met.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 p-6 bg-white rounded-3xl border border-purple-100 shadow-sm flex items-center gap-6">
+                        <div class="flex -space-x-3">
+                            <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Client">
+                            <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Client">
+                            <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Client">
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900">Experience Excellence</p>
+                            <p class="text-slate-500 text-sm">Join our satisfied community in Pasadena.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Massage Therapy" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-purple-200/50 rounded-full blur-3xl z-0"></div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-purple-400/20 rounded-full blur-3xl z-0"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900">Client Experiences</h3>
+                <p class="text-slate-500 mt-4">Read what our regular guests have to say</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 relative">
+                    <div class="text-purple-400 text-4xl mb-4 opacity-30">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-8 relative z-10">
+                        "The best massage I've had in Pasadena. The atmosphere is so peaceful and the therapists are truly skilled. I left feeling completely reborn."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">SM</div>
+                        <div>
+                            <h6 class="font-bold text-slate-900">Sarah Miller</h6>
+                            <p class="text-xs text-slate-400">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 relative">
+                    <div class="text-purple-400 text-4xl mb-4 opacity-30">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-8 relative z-10">
+                        "Expert waxing services! They are very professional, clean, and make the experience as painless as possible. Highly recommend this place."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">JD</div>
+                        <div>
+                            <h6 class="font-bold text-slate-900">Jessica Davis</h6>
+                            <p class="text-xs text-slate-400">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 relative">
+                    <div class="text-purple-400 text-4xl mb-4 opacity-30">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-8 relative z-10">
+                        "I love how accessible the facility is. The staff is welcoming and the deep tissue massage fixed my chronic back pain. A hidden gem!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">MR</div>
+                        <div>
+                            <h6 class="font-bold text-slate-900">Michael Reed</h6>
+                            <p class="text-xs text-slate-400">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section id="contact" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+                <!-- Info -->
+                <div>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-8">Visit Our Sanctuary</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-purple-500 flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Our Location</p>
+                                <p class="text-slate-900 font-semibold text-lg leading-snug">
+                                    80 N Lake Ave #103,<br>Pasadena, CA 91101
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-purple-500 flex-shrink-0">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Opening Hours</p>
+                                <ul class="text-slate-700 space-y-1">
+                                    <li><span class='font-medium'>Monday:</span> 9:30 AM - 9:30 PM</li>
+                                    <li><span class='font-medium'>Tuesday:</span> 9:30 AM - 9:30 PM</li>
+                                    <li><span class='font-medium'>Wednesday:</span> 9:30 AM - 9:30 PM</li>
+                                    <li><span class='font-medium'>Thursday:</span> 9:30 AM - 9:30 PM</li>
+                                    <li><span class='font-medium'>Friday:</span> 9:30 AM - 9:30 PM</li>
+                                    <li><span class='font-medium'>Saturday:</span> 9:30 AM - 9:30 PM</li>
+                                    <li><span class='font-medium'>Sunday:</span> 9:30 AM - 9:30 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="tel:6265293886" class="flex-1 bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-4 hover:border-purple-300 transition-colors">
+                                <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 font-bold uppercase">Call Us</p>
+                                    <p class="font-bold text-slate-900">(626) 529-3886</p>
+                                </div>
+                            </a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Lake%20Massage%20and%20Wax&query_place_id=ChIJUfIN_tDDwoARCFFGCcGtYvg" target="_blank" class="flex-1 bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-4 hover:border-purple-300 transition-colors">
+                                <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600">
+                                    <i class="fa-solid fa-directions"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 font-bold uppercase">Directions</p>
+                                    <p class="font-bold text-slate-900">Get Directions</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="relative w-full h-[400px] lg:h-full min-h-[400px] rounded-3xl shadow-2xl overflow-hidden bg-slate-100 border-4 border-white">
+                    <iframe src="https://www.google.com/maps?q=34.14752,-118.13187&hl=en&z=14&output=embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                    <noscript>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lake%20Massage%20and%20Wax&query_place_id=ChIJUfIN_tDDwoARCFFGCcGtYvg" target="_blank" class="flex items-center justify-center h-full text-purple-500 font-bold">View on Google Maps</a>
+                    </noscript>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 py-16 text-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="lg:col-span-2">
+                    <span class="text-2xl font-bold text-white mb-6 block">Lake Massage & Wax</span>
+                    <p class="max-w-md leading-relaxed text-slate-400">
+                        Pasadena's sanctuary for professional massage and waxing services. We provide a space for relaxation, healing, and personal care in a welcoming environment.
+                    </p>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Quick Links</h6>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a href="#home" class="hover:text-purple-400 transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-purple-400 transition-colors">Services</a></li>
+                        <li><a href="#why-choose-us" class="hover:text-purple-400 transition-colors">Why Choose Us</a></li>
+                        <li><a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Service Areas</h6>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li>Pasadena, CA</li>
+                        <li>Catalina Villas</li>
+                        <li>Lake Avenue District</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-slate-500">
+                    &copy; 2025 Lake Massage and Wax. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-slate-500 text-sm">
+                    <p>Designed for Excellence</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/16265293886" target="_blank" class="fixed bottom-6 right-6 z-[60] group">
+        <div class="absolute -top-12 right-0 bg-white px-4 py-2 rounded-xl shadow-xl text-sm font-bold text-slate-800 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all pointer-events-none mb-2 border border-slate-100">
+            Chat with us!
+        </div>
+        <div class="bg-whatsapp w-16 h-16 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl animate-pulse hover:scale-110 transition-transform">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+    </a>
+
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="74845a23-fb99-493f-8dd9-9dcc802eea07"
+  data-lead-id="fd33de51-c0ca-4371-ade2-ba549d80569f"
+  async>
+</script>
+</body>
+</html>
