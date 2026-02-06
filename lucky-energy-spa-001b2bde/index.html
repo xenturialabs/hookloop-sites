@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Energy Spa | Professional Massage & Relaxation in Pasadena, CA</title>
+    <meta name="description" content="Experience ultimate relaxation at Lucky Energy Spa in Pasadena. Professional massage therapy, day spa services, and a tranquil atmosphere to rejuvenate your body and mind.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                        },
+                        whatsapp: '#25D366',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .animate-whatsapp {
+            animation: pulse-green 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-purple-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+                        Lucky Energy Spa
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium text-slate-600 hover:text-purple-600 transition">Home</a>
+                    <a href="#services" class="text-sm font-medium text-slate-600 hover:text-purple-600 transition">Services</a>
+                    <a href="#why-choose-us" class="text-sm font-medium text-slate-600 hover:text-purple-600 transition">Why Choose Us</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-purple-600 transition">Contact</a>
+                    <a href="https://wa.me/16263042726" target="_blank" class="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-bold rounded-full text-white bg-whatsapp hover:bg-green-600 transition shadow-md">
+                        <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 hover:text-purple-600 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden bg-white border-b border-purple-100" x-cloak>
+            <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3 text-center">
+                <a href="#home" @click="mobileMenu = false" class="block px-3 py-3 text-base font-medium text-slate-600">Home</a>
+                <a href="#services" @click="mobileMenu = false" class="block px-3 py-3 text-base font-medium text-slate-600">Services</a>
+                <a href="#why-choose-us" @click="mobileMenu = false" class="block px-3 py-3 text-base font-medium text-slate-600">Why Choose Us</a>
+                <a href="#contact" @click="mobileMenu = false" class="block px-3 py-3 text-base font-medium text-slate-600">Contact</a>
+                <div class="pt-4">
+                    <a href="https://wa.me/16263042726" class="inline-flex items-center px-8 py-3 border border-transparent text-base font-bold rounded-full text-white bg-whatsapp shadow-lg w-full justify-center">
+                        <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative h-screen flex items-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80" 
+                 alt="Spa Wellness Atmosphere" 
+                 class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="max-w-3xl">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/20 text-purple-200 border border-purple-400/30 text-sm font-semibold mb-6 backdrop-blur-sm">
+                    Rejuvenate Your Senses in Pasadena
+                </span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
+                    Relax Your Mind, <span class="text-purple-400">Recharge</span> Your Body.
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl">
+                    Experience ultimate tranquility at Lucky Energy Spa. Our professional therapists provide personalized care to melt away stress and restore your natural balance.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+                    <a href="https://wa.me/16263042726" class="px-8 py-4 bg-purple-500 hover:bg-purple-400 text-white font-bold rounded-xl transition transform hover:scale-105 shadow-xl text-center">
+                        Book Appointment
+                    </a>
+                    <a href="tel:6263042726" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition backdrop-blur-md border border-white/30 text-center">
+                        <i class="fa-solid fa-phone mr-2"></i> (626) 304-2726
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-white scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-base font-bold text-purple-600 uppercase tracking-widest mb-3">Professional Wellness</h2>
+                <p class="text-3xl md:text-4xl font-extrabold text-slate-900">Our Specialized Services</p>
+                <div class="w-20 h-1.5 bg-purple-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="group p-8 rounded-3xl bg-purple-50 border border-purple-100 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-purple-500 text-3xl mb-6 shadow-sm group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Spa</h3>
+                    <p class="text-slate-600 leading-relaxed">A sanctuary designed to help you disconnect from the world and reconnect with yourself.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group p-8 rounded-3xl bg-purple-50 border border-purple-100 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-purple-500 text-3xl mb-6 shadow-sm group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Day Spa</h3>
+                    <p class="text-slate-600 leading-relaxed">Refresh your energy with our daytime wellness packages tailored for your busy lifestyle.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group p-8 rounded-3xl bg-purple-50 border border-purple-100 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-purple-500 text-3xl mb-6 shadow-sm group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-hands-relaxing"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Massage Spa</h3>
+                    <p class="text-slate-600 leading-relaxed">Targeted muscle relief and relaxation techniques to soothe your body and reduce tension.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group p-8 rounded-3xl bg-purple-50 border border-purple-100 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-purple-500 text-3xl mb-6 shadow-sm group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Massage Therapist</h3>
+                    <p class="text-slate-600 leading-relaxed">Certified professionals dedicated to providing the highest quality of therapeutic care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-choose-us" class="py-24 bg-slate-50 overflow-hidden scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Content Col -->
+                <div class="flex-1">
+                    <h2 class="text-base font-bold text-purple-600 uppercase tracking-widest mb-3">Premium Comfort</h2>
+                    <p class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 leading-tight">Why Choose Lucky Energy Spa?</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-circle-check text-purple-500 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-slate-900">Wheelchair Accessible</h4>
+                                <p class="text-sm text-slate-600 mt-1">Full access to entrance, parking lot, and restrooms.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-circle-check text-purple-500 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-slate-900">Easy Payments</h4>
+                                <p class="text-sm text-slate-600 mt-1">We accept Credit Cards, Debit Cards, and NFC Mobile Payments.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-circle-check text-purple-500 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-slate-900">Central Location</h4>
+                                <p class="text-sm text-slate-600 mt-1">Located in the heart of Pasadena - Mid Central, California.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-circle-check text-purple-500 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-slate-900">Extended Hours</h4>
+                                <p class="text-sm text-slate-600 mt-1">Open daily from 10 AM to 10 PM for your convenience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 pt-8 border-t border-slate-200">
+                        <p class="italic text-slate-500 font-medium">"Our mission is to provide a peaceful haven where you can escape the daily grind and focus on your physical and mental well-being."</p>
+                    </div>
+                </div>
+
+                <!-- Image Col -->
+                <div class="flex-1 relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" 
+                             alt="Massage Therapy Session" 
+                             class="w-full h-auto">
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -z-10 animate-pulse"></div>
+                    <div class="absolute -top-6 -left-6 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section id="contact" class="py-24 bg-white scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Details -->
+                <div class="space-y-10">
+                    <div>
+                        <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Visit Us Today</h2>
+                        <p class="text-slate-600">Find us in Pasadena and start your journey to relaxation.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-slate-900">Address</h4>
+                                <p class="text-slate-600">82 N Hill Ave, Pasadena, CA 91107</p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Lucky%20Energy%20Spa&query_place_id=ChIJXWMxU1DDwoARJnIe48lSF1E" 
+                                   target="_blank" class="text-purple-600 font-semibold text-sm hover:underline mt-1 inline-block">
+                                    Get Directions <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 flex-shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-slate-900">Phone</h4>
+                                <p class="text-slate-600">(626) 304-2726</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 flex-shrink-0">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-slate-900 mb-2">Opening Hours</h4>
+                                <ul class="space-y-1 text-slate-600 text-sm">
+                                    <li class="flex justify-between w-full max-w-[200px] border-b border-slate-100 pb-1">
+                                        <span class="font-medium text-slate-900">Monday:</span> 10 AM - 10 PM
+                                    </li>
+                                    <li class="flex justify-between w-full max-w-[200px] border-b border-slate-100 pb-1">
+                                        <span class="font-medium text-slate-900">Tuesday:</span> 10 AM - 10 PM
+                                    </li>
+                                    <li class="flex justify-between w-full max-w-[200px] border-b border-slate-100 pb-1">
+                                        <span class="font-medium text-slate-900">Wednesday:</span> 10 AM - 10 PM
+                                    </li>
+                                    <li class="flex justify-between w-full max-w-[200px] border-b border-slate-100 pb-1">
+                                        <span class="font-medium text-slate-900">Thursday:</span> 10 AM - 10 PM
+                                    </li>
+                                    <li class="flex justify-between w-full max-w-[200px] border-b border-slate-100 pb-1">
+                                        <span class="font-medium text-slate-900">Friday:</span> 10 AM - 10 PM
+                                    </li>
+                                    <li class="flex justify-between w-full max-w-[200px] border-b border-slate-100 pb-1">
+                                        <span class="font-medium text-slate-900">Saturday:</span> 10 AM - 10 PM
+                                    </li>
+                                    <li class="flex justify-between w-full max-w-[200px] pb-1">
+                                        <span class="font-medium text-slate-900">Sunday:</span> 10 AM - 10 PM
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="relative w-full h-[450px] rounded-3xl shadow-2xl overflow-hidden bg-slate-100 border-4 border-white">
+                    <iframe src="https://www.google.com/maps?q=34.14754,-118.12107&hl=en&z=15&output=embed" 
+                            class="absolute inset-0 w-full h-full border-0" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <noscript>
+                        <div class="flex items-center justify-center h-full text-center p-8">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Lucky%20Energy%20Spa" target="_blank" class="text-purple-600 font-bold hover:underline">
+                                View Lucky Energy Spa on Google Maps
+                            </a>
+                        </div>
+                    </noscript>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-slate-800 pb-12 mb-12 text-center md:text-left">
+                <div>
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent mb-6">Lucky Energy Spa</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Dedicated to excellence in spa services and massage therapy. Your neighborhood retreat for peace, quiet, and healing.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-slate-400">
+                        <li><a href="#home" class="hover:text-purple-400 transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-purple-400 transition">Our Services</a></li>
+                        <li><a href="#why-choose-us" class="hover:text-purple-400 transition">Why Choose Us</a></li>
+                        <li><a href="#contact" class="hover:text-purple-400 transition">Find Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-3 text-slate-400">
+                        <li><i class="fa-solid fa-phone mr-3 text-purple-400"></i> (626) 304-2726</li>
+                        <li><i class="fa-solid fa-map-marker-alt mr-3 text-purple-400"></i> 82 N Hill Ave, Pasadena, CA</li>
+                        <li><i class="fa-solid fa-clock mr-3 text-purple-400"></i> Open Daily: 10AM - 10PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
+                <p>© 2025 Lucky Energy Spa. All rights reserved.</p>
+                <div class="flex items-center space-x-6">
+                    <span class="flex items-center"><i class="fa-solid fa-wheelchair mr-2"></i> Accessible</span>
+                    <span class="flex items-center"><i class="fa-solid fa-shield-halved mr-2"></i> Licensed Spa</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/16263042726" 
+       target="_blank"
+       class="fixed bottom-6 right-6 z-[60] flex items-center justify-center w-16 h-16 bg-whatsapp text-white rounded-full shadow-2xl animate-whatsapp hover:scale-110 transition-transform focus:outline-none"
+       aria-label="Contact us on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="3bc4e606-171d-4396-92e7-81ffd3a575f7"
+  data-lead-id="6c9ad239-67b1-437b-854c-ab9bed4a8b4f"
+  async>
+</script>
+</body>
+</html>
