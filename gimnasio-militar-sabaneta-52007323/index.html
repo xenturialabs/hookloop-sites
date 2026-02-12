@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio Militar Sabaneta | Entrena con Disciplina</title>
+    <meta name="description" content="Transforma tu cuerpo y mente en Gimnasio Militar Sabaneta. Entrenamiento de alto nivel, musculación y preparación física en Sabaneta, Antioquia.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#b91c1c', // red-700
+                        secondary: '#fef2f2', // red-50
+                        accent: '#dc2626', // red-600
+                        whatsapp: '#25D366',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .hero-overlay {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-red-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <span class="bg-primary text-white p-2 rounded-lg">
+                            <i class="fa-solid fa-dumbbell fa-lg"></i>
+                        </span>
+                        <span class="font-extrabold text-xl tracking-tight text-slate-900 uppercase">Gimnasio <span class="text-primary">Militar</span></span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="font-medium hover:text-primary transition-colors">Inicio</a>
+                    <a href="#servicios" class="font-medium hover:text-primary transition-colors">Servicios</a>
+                    <a href="#nosotros" class="font-medium hover:text-primary transition-colors">Por qué Elegirnos</a>
+                    <a href="#contacto" class="font-medium hover:text-primary transition-colors">Contacto</a>
+                    <a href="https://wa.me/573003561412" target="_blank" class="bg-whatsapp hover:bg-green-600 text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 transition-all transform hover:scale-105 shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-900 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-cloak 
+             class="md:hidden bg-white border-b border-red-100 px-4 pt-2 pb-6 space-y-2 shadow-xl">
+            <a href="#inicio" @click="mobileMenu = false" class="block px-3 py-3 rounded-md text-base font-semibold hover:bg-secondary">Inicio</a>
+            <a href="#servicios" @click="mobileMenu = false" class="block px-3 py-3 rounded-md text-base font-semibold hover:bg-secondary">Servicios</a>
+            <a href="#nosotros" @click="mobileMenu = false" class="block px-3 py-3 rounded-md text-base font-semibold hover:bg-secondary">Por qué Elegirnos</a>
+            <a href="#contacto" @click="mobileMenu = false" class="block px-3 py-3 rounded-md text-base font-semibold hover:bg-secondary">Contacto</a>
+            <a href="https://wa.me/573003561412" class="mt-4 w-full bg-whatsapp text-white px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                Chatear por WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80" alt="Gimnasio Militar Entrenamiento" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <span class="inline-block bg-primary px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase mb-6 animate-bounce">Fuerza • Disciplina • Victoria</span>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Entrena con la Disciplina de <span class="text-primary">un Verdadero Guerrero</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-slate-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                Supera tus límites físicos y mentales en el centro de entrenamiento más exigente de Sabaneta. ¿Estás listo para el siguiente nivel?
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/573003561412" class="bg-primary hover:bg-accent text-white px-10 py-5 rounded-xl font-bold text-lg shadow-2xl transition-all transform hover:-translate-y-1">
+                    Solicitar Cotización
+                </a>
+                <a href="tel:+573003561412" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border-2 border-white/30 px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:-translate-y-1">
+                    <i class="fa-solid fa-phone mr-2"></i> Llamar ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="bg-white py-6 border-b border-slate-100 shadow-sm relative z-20">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="flex text-yellow-400 text-lg">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="font-bold text-slate-800">5.0 Estrellas en Google</span>
+            </div>
+            <div class="h-6 w-px bg-slate-200 hidden md:block"></div>
+            <div class="flex items-center gap-2 text-slate-600 italic">
+                <i class="fa-solid fa-shield-halved text-primary"></i>
+                <span>Excelencia comprobada en Google Maps</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-3">Lo que ofrecemos</h2>
+                <h3 class="text-3xl md:text-5xl font-black text-slate-900">Servicios de Élite</h3>
+                <div class="w-20 h-1.5 bg-primary mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="group p-8 rounded-3xl bg-secondary border border-red-100 hover:bg-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary group-hover:bg-white text-white group-hover:text-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-colors">
+                        <i class="fa-solid fa-weight-hanging text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold mb-4 group-hover:text-white">Entrenamiento Funcional</h4>
+                    <p class="text-slate-600 group-hover:text-white/90 leading-relaxed">Ejercicios dinámicos diseñados para mejorar tu movilidad, fuerza y resistencia aplicadas a la vida real.</p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="group p-8 rounded-3xl bg-secondary border border-red-100 hover:bg-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary group-hover:bg-white text-white group-hover:text-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-colors">
+                        <i class="fa-solid fa-dumbbell text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold mb-4 group-hover:text-white">Musculación y Pesas</h4>
+                    <p class="text-slate-600 group-hover:text-white/90 leading-relaxed">Zona completa con equipamiento de alta gama para el desarrollo muscular y aumento de fuerza máxima.</p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="group p-8 rounded-3xl bg-secondary border border-red-100 hover:bg-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary group-hover:bg-white text-white group-hover:text-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-colors">
+                        <i class="fa-solid fa-user-ninja text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold mb-4 group-hover:text-white">Preparación Militar</h4>
+                    <p class="text-slate-600 group-hover:text-white/90 leading-relaxed">Entrenamiento especializado para aspirantes a fuerzas públicas y personas que buscan máxima disciplina.</p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="group p-8 rounded-3xl bg-secondary border border-red-100 hover:bg-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary group-hover:bg-white text-white group-hover:text-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-colors">
+                        <i class="fa-solid fa-bolt text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold mb-4 group-hover:text-white">Cardio HIIT</h4>
+                    <p class="text-slate-600 group-hover:text-white/90 leading-relaxed">Sesiones de intervalos de alta intensidad para quemar grasa y mejorar tu salud cardiovascular rápidamente.</p>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="group p-8 rounded-3xl bg-secondary border border-red-100 hover:bg-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary group-hover:bg-white text-white group-hover:text-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-colors">
+                        <i class="fa-solid fa-person-running text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold mb-4 group-hover:text-white">Personal Trainer</h4>
+                    <p class="text-slate-600 group-hover:text-white/90 leading-relaxed">Asesoría 1 a 1 para garantizar que realices cada ejercicio con la técnica perfecta y logres tus objetivos.</p>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="group p-8 rounded-3xl bg-secondary border border-red-100 hover:bg-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary group-hover:bg-white text-white group-hover:text-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-colors">
+                        <i class="fa-solid fa-apple-whole text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold mb-4 group-hover:text-white">Plan Nutricional</h4>
+                    <p class="text-slate-600 group-hover:text-white/90 leading-relaxed">Orientación alimenticia para complementar tu esfuerzo físico y maximizar los resultados de tu transformación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="nosotros" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-3">La diferencia</h2>
+                    <h3 class="text-4xl font-black text-slate-900 mb-8">¿Por qué elegir el Gimnasio Militar?</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xl text-slate-900">Enfoque en Resultados Reales</h5>
+                                <p class="text-slate-600">No solo levantamos pesas, construimos cuerpos funcionales y mentes inquebrantables.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xl text-slate-900">Instructores Calificados</h5>
+                                <p class="text-slate-600">Entrenadores con experiencia en técnicas de alto rendimiento y formación disciplinaria.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xl text-slate-900">Equipamiento de Primera</h5>
+                                <p class="text-slate-600">Instalaciones modernas con todo lo necesario para rutinas exigentes de nivel profesional.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xl text-slate-900">Comunidad de Guerreros</h5>
+                                <p class="text-slate-600">Un ambiente motivador donde cada compañero te impulsa a dar el máximo en cada repetición.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/573003561412" class="mt-10 inline-block bg-primary text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-red-200 hover:bg-accent transition-all">
+                        ¡Empieza Hoy Mismo!
+                    </a>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/10 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+                    <div class="rounded-3xl overflow-hidden shadow-2xl transform rotate-1">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=80" alt="Entrenamiento en Sabaneta" class="w-full h-[500px] object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-3xl md:text-5xl font-black text-slate-900 mb-16">Lo que dicen nuestros <span class="text-primary">Atletas</span></h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-secondary p-8 rounded-3xl border border-red-100 relative text-left">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"El mejor gimnasio de Sabaneta. El enfoque militar realmente te empuja a dar lo mejor de ti mismo en cada sesión. He visto cambios increíbles."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">CM</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Carlos Mario R.</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest">Miembro desde 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-secondary p-8 rounded-3xl border border-red-100 relative text-left">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Excelente ambiente y máquinas en perfecto estado. Los instructores son muy profesionales y te corrigen la técnica constantemente."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">AL</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Andrea López</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest">Atleta Fitness</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-secondary p-8 rounded-3xl border border-red-100 relative text-left">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"La disciplina que se respira aquí no la encuentras en otro lado. Si buscas resultados de verdad y no solo ir a pasear, este es el sitio."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">JP</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Juan Pablo G.</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest">Entrenamiento Militar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="contacto" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 uppercase">Ubicación & <span class="text-primary">Contacto</span></h3>
+                    <p class="text-slate-600 mb-10 text-lg">Visítanos en nuestras instalaciones y comienza tu transformación.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-white text-primary rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h6 class="font-bold text-slate-900">Dirección</h6>
+                                <p class="text-slate-600">Cl. 75 Sur #43 a 90 interior 101, Sabaneta, Antioquia, Colombia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-white text-primary rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h6 class="font-bold text-slate-900">Teléfono & WhatsApp</h6>
+                                <p class="text-slate-600">+57 300 3561412</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-white text-primary rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h6 class="font-bold text-slate-900">Horario de Atención</h6>
+                                <ul class="space-y-1 text-slate-600">
+                                    <li><span class="font-medium text-slate-900">Lunes - Viernes:</span> 9:00 AM - 6:00 PM</li>
+                                    <li><span class="font-medium text-slate-900">Sábado:</span> 9:00 AM - 2:00 PM</li>
+                                    <li><span class="font-medium text-slate-900 text-red-500">Domingos y Festivos:</span> Cerrado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 flex flex-wrap gap-4">
+                        <a href="https://wa.me/573003561412" class="bg-whatsapp text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Hablar con un asesor
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Gimnasio%20Militar%20Sabaneta&query_place_id=ChIJS423jiiDRo4RHeVUwLV04zM" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-800 transition-all shadow-lg">
+                            <i class="fa-solid fa-map-location-dot"></i> Cómo llegar
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-[500px] rounded-3xl shadow-2xl overflow-hidden border-8 border-white">
+                    <iframe src="https://www.google.com/maps?q=Gimnasio+Militar+Sabaneta+Cl.+75+Sur+%2343+a+90+interior+101%2C+Sabaneta%2C+Antioquia%2C+Colombia&hl=es&z=14&output=embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center items-center space-x-2 mb-8">
+                <span class="bg-primary text-white p-2 rounded-lg">
+                    <i class="fa-solid fa-dumbbell"></i>
+                </span>
+                <span class="font-extrabold text-2xl uppercase tracking-tighter">Gimnasio <span class="text-primary">Militar</span> Sabaneta</span>
+            </div>
+            
+            <p class="text-slate-400 max-w-md mx-auto mb-8">
+                Forjando el carácter y el físico de Sabaneta a través de la disciplina militar aplicada al deporte.
+            </p>
+
+            <div class="w-full h-px bg-slate-800 mb-8"></div>
+            
+            <p class="text-slate-500 text-sm">
+                &copy; 2025 Gimnasio Militar Sabaneta. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP -->
+    <a href="https://wa.me/573003561412" target="_blank" class="fixed bottom-6 right-6 z-[60] bg-whatsapp text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform animate-pulse">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="80050df3-ebde-43a6-9073-4bc5f5ba4775"
+  data-lead-id="e5fc1e35-e0fc-4b60-9f38-8967b35dfd1d"
+  async>
+</script>
+</body>
+</html>
