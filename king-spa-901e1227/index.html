@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Spa | Professional Massage in Pasadena, CA</title>
+    <meta name="description" content="Experience the ultimate relaxation at King Spa in Pasadena. Professional massage services tailored to your needs. Book your appointment today.">
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#faf5ff',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                        },
+                        slate: {
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+        }
+        .bento-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(168, 85, 247, 0.1), 0 10px 10px -5px rgba(168, 85, 247, 0.04);
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white selection:bg-primary-500 selection:text-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary-500/20">
+                        <i class="fa-solid fa-crown text-xl"></i>
+                    </div>
+                    <span class="font-heading text-2xl font-bold tracking-tight text-slate-900 uppercase">King Spa</span>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#home" class="hover:text-primary-500 transition-colors">Home</a>
+                    <a href="#services" class="hover:text-primary-500 transition-colors">Services</a>
+                    <a href="#why-us" class="hover:text-primary-500 transition-colors">Why Choose Us</a>
+                    <a href="#location" class="hover:text-primary-500 transition-colors">Location</a>
+                    <a href="https://wa.me/16262986254" target="_blank" class="bg-[#25D366] text-white px-6 py-2.5 rounded-full flex items-center gap-2 hover:bg-[#1eb956] transition-all shadow-md shadow-green-500/20">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenu = !mobileMenu" class="p-2 text-slate-600">
+                        <i class="fa-solid" :class="mobileMenu ? 'fa-xmark' : 'fa-bars-staggered'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak @click.away="mobileMenu = false" class="md:hidden bg-white border-t border-slate-100 px-4 py-6 space-y-4 shadow-xl">
+            <a href="#home" @click="mobileMenu = false" class="block text-lg font-medium">Home</a>
+            <a href="#services" @click="mobileMenu = false" class="block text-lg font-medium">Services</a>
+            <a href="#why-us" @click="mobileMenu = false" class="block text-lg font-medium">Why Choose Us</a>
+            <a href="#location" @click="mobileMenu = false" class="block text-lg font-medium">Location</a>
+            <a href="https://wa.me/16262986254" class="block bg-[#25D366] text-white text-center py-3 rounded-xl font-bold">
+                <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80" alt="Spa Ambience" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl" data-aos="fade-right">
+                <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-primary-400 uppercase bg-primary-500/10 border border-primary-500/20 rounded-full">
+                    Premium Wellness Center
+                </span>
+                <h1 class="text-5xl md:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+                    Restore Your Body, <br> <span class="text-primary-400 italic font-medium">Heal Your Soul.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
+                    Experience the finest massage therapy in Pasadena. At King Spa, we combine traditional techniques with a tranquil environment to provide the ultimate healing experience.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/16262986254" class="inline-flex items-center justify-center px-8 py-4 bg-primary-500 text-white font-bold rounded-xl hover:bg-primary-600 transition-all shadow-lg shadow-primary-500/30 group">
+                        Book Appointment
+                        <i class="fa-solid fa-calendar-check ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="tel:6262986254" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm">
+                        <i class="fa-solid fa-phone mr-2"></i>
+                        (626) 298-6254
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MARQUEE TICKER -->
+    <div class="bg-primary-500 py-6 overflow-hidden">
+        <div class="marquee-container">
+            <div class="animate-marquee flex gap-12 items-center">
+                <span class="text-white/40 font-black text-6xl uppercase tracking-widest">RELAX</span>
+                <span class="text-white font-black text-6xl uppercase tracking-widest">KING SPA</span>
+                <span class="text-white/40 font-black text-6xl uppercase tracking-widest">REJUVENATE</span>
+                <span class="text-white font-black text-6xl uppercase tracking-widest">PROFESSIONAL MASSAGE</span>
+                <span class="text-white/40 font-black text-6xl uppercase tracking-widest">REFRESH</span>
+                <span class="text-white font-black text-6xl uppercase tracking-widest">KING SPA</span>
+                <!-- Repeat for infinite loop -->
+                <span class="text-white/40 font-black text-6xl uppercase tracking-widest">RELAX</span>
+                <span class="text-white font-black text-6xl uppercase tracking-widest">KING SPA</span>
+                <span class="text-white/40 font-black text-6xl uppercase tracking-widest">REJUVENATE</span>
+                <span class="text-white font-black text-6xl uppercase tracking-widest">PROFESSIONAL MASSAGE</span>
+                <span class="text-white/40 font-black text-6xl uppercase tracking-widest">REFRESH</span>
+                <span class="text-white font-black text-6xl uppercase tracking-widest">KING SPA</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION (Bento Grid) -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-primary-500 font-bold tracking-widest uppercase text-sm mb-3 text-center">Our Specialization</h2>
+                <h3 class="text-4xl md:text-5xl font-heading font-bold text-slate-900">Healing Hands Services</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Main Bento Item -->
+                <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl bento-card bg-primary-500 text-white p-8 md:p-12" data-aos="fade-up">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-md">
+                                <i class="fa-solid fa-spa text-3xl"></i>
+                            </div>
+                            <h4 class="text-3xl font-heading font-bold mb-4">Professional Massage Spa</h4>
+                            <p class="text-primary-50 text-lg leading-relaxed max-w-lg">
+                                Our signature treatment designed to release deep-seated tension. Using a combination of pressure and long strokes, we focus on muscle recovery and total physical restoration.
+                            </p>
+                        </div>
+                        <div class="mt-8 flex items-center gap-4 text-sm font-bold uppercase tracking-widest">
+                            <span>Deep Tissue</span>
+                            <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                            <span>Swedish</span>
+                            <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                            <span>Sports Therapy</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-hand-holding-heart absolute -bottom-10 -right-10 text-9xl text-white/10"></i>
+                </div>
+
+                <!-- Bento Item 2 -->
+                <div class="bg-primary-50 rounded-3xl p-8 bento-card border border-primary-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg">
+                        <i class="fa-solid fa-leaf text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Therapeutic Bodywork</h4>
+                    <p class="text-slate-600">Customized pressure points to improve circulation and reduce daily stress from your body.</p>
+                </div>
+
+                <!-- Bento Item 3 -->
+                <div class="bg-slate-900 rounded-3xl p-8 bento-card text-white overflow-hidden relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 border border-white/20">
+                        <i class="fa-solid fa-hot-tub-person text-xl text-primary-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Hot Stone Add-on</h4>
+                    <p class="text-slate-400">Enhance your experience with volcanic stones that melt away persistent muscle knots.</p>
+                </div>
+
+                <!-- Bento Item 4 (Small) -->
+                <div class="md:col-span-1 bg-white border border-slate-100 rounded-3xl p-8 bento-card shadow-sm flex flex-col justify-center items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary-500 mb-4">
+                        <i class="fa-solid fa-clock-rotate-left text-4xl"></i>
+                    </div>
+                    <h4 class="text-lg font-bold">10 AM - 10 PM</h4>
+                    <p class="text-slate-500 text-sm">Open every day for your convenience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="py-24 bg-primary-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-primary-500 font-bold tracking-widest uppercase text-sm mb-3">The King Spa Difference</h2>
+                    <h3 class="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-8 leading-tight">A Sanctuary Dedicated to Your Well-being</h3>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Licensed Therapists</h4>
+                                <p class="text-slate-600 leading-relaxed">Expert practitioners with years of experience in various massage modalities.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Tranquil Environment</h4>
+                                <p class="text-slate-600 leading-relaxed">A peaceful atmosphere designed to disconnect you from the outside world.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Premium Amenities</h4>
+                                <p class="text-slate-600 leading-relaxed">Clean facilities including restroom access and premium oils for your skin.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-10 p-6 bg-white rounded-2xl border border-primary-100 flex items-center gap-6 shadow-sm">
+                        <div class="flex -space-x-3">
+                            <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-200 flex items-center justify-center"><i class="fa-solid fa-user text-slate-400"></i></div>
+                            <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-300 flex items-center justify-center"><i class="fa-solid fa-user text-slate-500"></i></div>
+                            <div class="w-12 h-12 rounded-full border-4 border-white bg-primary-400 flex items-center justify-center text-white font-bold text-xs">+500</div>
+                        </div>
+                        <p class="text-sm font-medium text-slate-700">Satisfied monthly clients in Pasadena</p>
+                    </div>
+                </div>
+
+                <div class="relative" data-aos="fade-left">
+                    <div class="absolute -inset-4 bg-primary-500/10 rounded-3xl rotate-3"></div>
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Massage therapy sessions" class="relative rounded-3xl w-full h-[500px] object-cover shadow-2xl">
+                    <div class="absolute -bottom-6 -left-6 bg-slate-900 text-white p-6 rounded-2xl shadow-xl hidden sm:block">
+                        <span class="block text-3xl font-bold text-primary-400">100%</span>
+                        <span class="text-sm text-slate-400 uppercase tracking-widest font-semibold">Quality Service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="location" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <div data-aos="fade-up">
+                    <h3 class="text-4xl font-heading font-bold text-slate-900 mb-8">Visit Our Spa</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-500 text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500 uppercase text-xs font-bold tracking-widest mb-1">Our Address</p>
+                                <p class="text-lg font-medium">1460 E Walnut St, Pasadena, CA 91106</p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=king%20spa&query_place_id=ChIJa4Qy6wfDwoARMzceBXntYqQ" target="_blank" class="text-primary-500 text-sm font-bold hover:underline mt-2 inline-block">Get Directions</a>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-500 text-xl">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-slate-500 uppercase text-xs font-bold tracking-widest mb-3">Opening Hours</p>
+                                <ul class="grid grid-cols-2 gap-2 text-sm">
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class='font-medium'>Monday:</span> 10 AM-10 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class='font-medium'>Tuesday:</span> 10 AM-10 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class='font-medium'>Wednesday:</span> 10 AM-10 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class='font-medium'>Thursday:</span> 10 AM-10 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class='font-medium'>Friday:</span> 10 AM-10 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class='font-medium'>Saturday:</span> 10 AM-10 PM</li>
+                                    <li class="flex justify-between border-b border-slate-50 pb-1"><span class='font-medium'>Sunday:</span> 10 AM-10 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 pt-4">
+                            <a href="tel:6262986254" class="flex-1 bg-slate-900 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
+                                <i class="fa-solid fa-phone"></i> Call Now
+                            </a>
+                            <a href="https://wa.me/16262986254" target="_blank" class="flex-1 bg-[#25D366] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#1eb956] transition-colors">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-[500px] rounded-3xl shadow-2xl overflow-hidden bg-slate-100 border-8 border-white" data-aos="fade-left">
+                    <iframe src="https://www.google.com/maps?q=34.14935,-118.12031&hl=en&z=15&output=embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 border-b border-white/10 pb-12 mb-10">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i class="fa-solid fa-crown text-2xl"></i>
+                        </div>
+                        <span class="font-heading text-3xl font-bold tracking-tight text-white uppercase italic">King Spa</span>
+                    </div>
+                    <p class="text-slate-400 max-w-sm">Premium massage spa in Pasadena, CA. Focused on relaxation, recovery, and professional care.</p>
+                </div>
+                <div class="flex flex-wrap gap-8">
+                    <a href="#home" class="text-slate-300 hover:text-primary-400 font-medium">Home</a>
+                    <a href="#services" class="text-slate-300 hover:text-primary-400 font-medium">Services</a>
+                    <a href="#why-us" class="text-slate-300 hover:text-primary-400 font-medium">Why Us</a>
+                    <a href="#location" class="text-slate-300 hover:text-primary-400 font-medium">Location</a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-slate-500">
+                <p>&copy; 2025 King Spa. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <span>1460 E Walnut St, Pasadena, CA 91106</span>
+                    <span>(626) 298-6254</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP BUTTON -->
+    <a href="https://wa.me/16262986254" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform animate-bounce hover:animate-none group">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-full mr-4 bg-white text-slate-900 px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg border border-slate-100">
+            Book Appointment
+        </span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-out-cubic'
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="b16e17a5-05d9-45a4-82dd-a2cf3c676f9b"
+  data-lead-id="640e0117-cf43-46bd-b561-ac6ee2eebcc5"
+  async>
+</script>
+</body>
+</html>
