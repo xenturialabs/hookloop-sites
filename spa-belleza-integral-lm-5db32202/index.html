@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa Belleza integral L&M | Centro de Estética en Medellín</title>
+    <meta name="description" content="Descubre la excelencia en Spa Belleza integral L&M. Centro de estética líder en Medellín, La Candelaria. Resultados reales y atención personalizada.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        },
+                        whatsapp: '#25D366'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .glass-nav {
+                @apply bg-white/80 backdrop-blur-md border-b border-indigo-50 sticky top-0 z-50;
+            }
+            .btn-primary {
+                @apply bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2;
+            }
+            .btn-secondary {
+                @apply bg-white/10 hover:bg-white/20 text-white border border-white/30 px-6 py-3 rounded-full font-bold transition-all backdrop-blur-sm flex items-center justify-center gap-2;
+            }
+            .bento-card {
+                @apply bg-white p-8 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
+                        <i class="fa-solid fa-spa text-xl"></i>
+                    </div>
+                    <span class="font-heading text-xl font-bold text-indigo-900 tracking-tight">L&M Belleza Integral</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-sm font-semibold hover:text-indigo-600 transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-sm font-semibold hover:text-indigo-600 transition-colors">Servicios</a>
+                    <a href="#nosotros" class="text-sm font-semibold hover:text-indigo-600 transition-colors">Por qué elegirnos</a>
+                    <a href="#contacto" class="text-sm font-semibold hover:text-indigo-600 transition-colors">Contacto</a>
+                    <a href="https://wa.me/573226416530" target="_blank" class="bg-whatsapp text-white px-5 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-opacity">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenu = !mobileMenu" class="text-indigo-900 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-transition class="md:hidden bg-white border-b border-indigo-50 absolute w-full left-0 p-4 space-y-4 shadow-xl">
+            <a href="#inicio" @click="mobileMenu = false" class="block text-lg font-medium py-2">Inicio</a>
+            <a href="#servicios" @click="mobileMenu = false" class="block text-lg font-medium py-2">Servicios</a>
+            <a href="#nosotros" @click="mobileMenu = false" class="block text-lg font-medium py-2">Por qué elegirnos</a>
+            <a href="#contacto" @click="mobileMenu = false" class="block text-lg font-medium py-2">Contacto</a>
+            <a href="https://wa.me/573226416530" class="w-full btn-primary bg-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="inicio" class="relative h-[90vh] flex items-center overflow-hidden bg-slate-900">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80" class="w-full h-full object-cover opacity-60" alt="Spa Belleza Integral">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/40 to-transparent"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl" data-aos="fade-right">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-indigo-600/20 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-6 border border-indigo-600/30 backdrop-blur-sm">
+                    Bienvenido a la excelencia estética
+                </span>
+                <h1 class="font-heading text-5xl md:text-7xl text-white font-black leading-tight mb-6">
+                    Realza tu <span class="text-indigo-400">belleza natural</span> con manos expertas.
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 font-light leading-relaxed">
+                    En Spa Belleza integral L&M, combinamos tecnología avanzada y tratamientos personalizados para que luzcas y te sientas increíble en Medellín.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/573226416530" class="btn-primary text-lg">
+                        Solicitar Cotización <i class="fa-solid fa-calendar-check"></i>
+                    </a>
+                    <a href="tel:+573226416530" class="btn-secondary text-lg">
+                        Llamar ahora <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- INFINITE TICKER -->
+    <section class="bg-indigo-600 overflow-hidden py-6 border-y-4 border-white">
+        <div class="flex animate-marquee whitespace-nowrap">
+            <span class="text-white/30 font-black text-6xl uppercase tracking-widest mx-4">CENTRO DE ESTÉTICA • BIENESTAR • BELLEZA INTEGRAL • MEDELLÍN • RESULTADOS REALES •</span>
+            <span class="text-white/30 font-black text-6xl uppercase tracking-widest mx-4">CENTRO DE ESTÉTICA • BIENESTAR • BELLEZA INTEGRAL • MEDELLÍN • RESULTADOS REALES •</span>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="bg-indigo-50 py-10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8">
+            <div class="flex items-center gap-4 bg-white px-8 py-4 rounded-2xl shadow-sm border border-indigo-100" data-aos="zoom-in">
+                <div class="flex text-yellow-400 text-2xl">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="border-l pl-4 border-slate-200">
+                    <p class="font-bold text-slate-900 text-lg">5.0 Estrellas</p>
+                    <p class="text-xs text-slate-500 uppercase tracking-tighter">19 Opiniones en Google</p>
+                </div>
+            </div>
+            <p class="text-indigo-900 font-medium text-lg italic" data-aos="fade-left">
+                "Excelencia comprobada en Google Maps"
+            </p>
+        </div>
+    </div>
+
+    <!-- SERVICES (BENTO BOX) -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-black text-indigo-950 mb-4">Nuestros Servicios</h2>
+                <div class="w-24 h-1.5 bg-indigo-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bento Item 1 (Large) -->
+                <div class="md:col-span-2 bento-card group" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-4 bg-indigo-600 text-white rounded-2xl group-hover:rotate-12 transition-transform">
+                            <i class="fa-solid fa-wand-magic-sparkles text-3xl"></i>
+                        </div>
+                        <span class="text-indigo-600 font-bold tracking-tighter text-sm uppercase px-3 py-1 bg-indigo-50 rounded-lg">Popular</span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-3xl font-bold text-slate-900 mb-4">Centro de Estética Integral</h3>
+                        <p class="text-slate-600 text-lg mb-6 max-w-lg leading-relaxed">Ofrecemos una gama completa de tratamientos estéticos diseñados para revitalizar tu piel, mejorar tu contorno corporal y brindarte el descanso que mereces. Todo bajo estándares de calidad superior.</p>
+                        <ul class="grid grid-cols-2 gap-3 text-sm font-medium text-slate-500 mb-8">
+                            <li class="flex items-center gap-2 text-indigo-600"><i class="fa-solid fa-circle-check"></i> Tratamientos Faciales</li>
+                            <li class="flex items-center gap-2 text-indigo-600"><i class="fa-solid fa-circle-check"></i> Moldeo Corporal</li>
+                            <li class="flex items-center gap-2 text-indigo-600"><i class="fa-solid fa-circle-check"></i> Depilación</li>
+                            <li class="flex items-center gap-2 text-indigo-600"><i class="fa-solid fa-circle-check"></i> Masajes Terapéuticos</li>
+                        </ul>
+                    </div>
+                    <div class="absolute bottom-0 right-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fa-solid fa-spa text-[200px] transform translate-y-12 translate-x-12"></i>
+                    </div>
+                </div>
+
+                <!-- Bento Item 2 -->
+                <div class="bento-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-4 bg-indigo-50 text-indigo-600 rounded-2xl w-fit mb-6">
+                        <i class="fa-solid fa-face-smile text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-slate-900 mb-3">Faciales Profundos</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">Limpieza e hidratación profunda para devolverle la luminosidad a tu rostro de forma inmediata.</p>
+                    <a href="https://wa.me/573226416530" class="text-indigo-600 font-bold text-sm flex items-center gap-2 hover:translate-x-2 transition-transform">
+                        Saber más <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Bento Item 3 -->
+                <div class="bento-card group bg-slate-900 text-white border-none shadow-indigo-200/50" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-4 bg-white/10 text-white rounded-2xl w-fit mb-6 backdrop-blur-sm">
+                        <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Masajes Relax</h3>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Elimina el estrés acumulado con nuestras técnicas exclusivas de relajación muscular.</p>
+                    <a href="https://wa.me/573226416530" class="text-indigo-400 font-bold text-sm flex items-center gap-2 hover:translate-x-2 transition-transform">
+                        Reservar <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Bento Item 4 -->
+                <div class="bento-card group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-4 bg-indigo-50 text-indigo-600 rounded-2xl w-fit mb-6">
+                        <i class="fa-solid fa-gem text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-slate-900 mb-3">Estética Avanzada</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">Protocolos personalizados con tecnología de punta para resultados duraderos y seguros.</p>
+                    <a href="https://wa.me/573226416530" class="text-indigo-600 font-bold text-sm flex items-center gap-2 hover:translate-x-2 transition-transform">
+                        Ver planes <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="nosotros" class="py-24 bg-indigo-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="font-heading text-4xl md:text-5xl font-black text-indigo-950 mb-8 leading-tight">
+                        ¿Por qué elegir Spa Belleza integral L&M?
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-indigo-600">
+                                <i class="fa-solid fa-user-doctor text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-indigo-900 mb-1">Personal Certificado</h4>
+                                <p class="text-slate-600">Contamos con expertos apasionados por la estética y el bienestar integral.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-indigo-600">
+                                <i class="fa-solid fa-heart-pulse text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-indigo-900 mb-1">Atención Personalizada</h4>
+                                <p class="text-slate-600">Cada piel es única. Diseñamos tratamientos específicos para tus necesidades.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-indigo-600">
+                                <i class="fa-solid fa-credit-card text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-indigo-900 mb-1">Facilidad de Pago</h4>
+                                <p class="text-slate-600">Aceptamos tarjetas de crédito, débito y pagos móviles mediante NFC.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                    <div class="aspect-square rounded-[40px] overflow-hidden shadow-2xl rotate-3 relative z-10">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Nuestro equipo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-indigo-600 rounded-[40px] -rotate-6 -z-0"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-black text-indigo-950">Lo que dicen nuestras clientas</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="p-8 rounded-3xl bg-indigo-50 border border-indigo-100" data-aos="fade-up">
+                    <div class="flex text-yellow-400 mb-4 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"El mejor spa de La Candelaria. La atención es impecable y los resultados faciales se notan desde la primera sesión. ¡Recomendado!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-200 flex items-center justify-center font-bold text-indigo-600">MC</div>
+                        <span class="font-bold text-indigo-900">Mariana C.</span>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="p-8 rounded-3xl bg-white border border-indigo-100 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-yellow-400 mb-4 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Me realicé un masaje de relajación y salí como nueva. El ambiente es muy tranquilo y profesional. L&M es mi lugar favorito."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-200 flex items-center justify-center font-bold text-indigo-600">VP</div>
+                        <span class="font-bold text-indigo-900">Valentina P.</span>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="p-8 rounded-3xl bg-indigo-50 border border-indigo-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-yellow-400 mb-4 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Excelente servicio al cliente. Son muy cuidadosos y explican cada paso del tratamiento. Un spa 5 estrellas total."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-200 flex items-center justify-center font-bold text-indigo-600">JR</div>
+                        <span class="font-bold text-indigo-900">Jimena R.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section id="contacto" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div data-aos="fade-right">
+                    <h2 class="font-heading text-4xl font-black mb-8">Contáctanos hoy</h2>
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot text-indigo-400 mt-1"></i>
+                            <div>
+                                <p class="font-bold text-lg leading-tight">Dirección</p>
+                                <p class="text-slate-400">Cra. 39 #56-23, La Candelaria, Medellín, Antioquia, Colombia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-phone text-indigo-400 mt-1"></i>
+                            <div>
+                                <p class="font-bold text-lg leading-tight">Teléfono</p>
+                                <a href="tel:+573226416530" class="text-slate-400 hover:text-white transition-colors">+57 322 6416530</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-clock text-indigo-400 mt-1"></i>
+                            <div>
+                                <p class="font-bold text-lg mb-2 leading-tight">Horarios de Atención</p>
+                                <ul class="text-slate-400 text-sm space-y-1">
+                                    <li class="flex justify-between w-48 border-b border-white/10 pb-1"><span>Lunes - Sábado:</span> <span>9 AM - 7 PM</span></li>
+                                    <li class="flex justify-between w-48 pt-1"><span>Domingo:</span> <span>10 AM - 7 PM</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://wa.me/573226416530" class="btn-primary flex-1">
+                            <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Spa%20Belleza%20integral%20L%26M" target="_blank" class="btn-secondary flex-1">
+                            Ver en Maps <i class="fa-solid fa-map-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <div class="relative w-full h-[450px] rounded-[40px] shadow-2xl overflow-hidden bg-slate-800 border-4 border-white/5">
+                        <iframe src="https://www.google.com/maps?q=6.2496376,-75.55726&hl=es&z=14&output=embed" class="absolute inset-0 w-full h-full border-0 grayscale opacity-80" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute bottom-6 left-6 right-6 bg-white p-4 rounded-2xl text-slate-900 shadow-xl flex items-center justify-between">
+                            <div>
+                                <p class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Ubicación</p>
+                                <p class="text-sm font-medium">Medellín - Boston, La Candelaria</p>
+                            </div>
+                            <i class="fa-solid fa-location-crosshairs text-indigo-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 py-12 text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-2 text-white font-heading font-bold text-xl mb-6">
+                <i class="fa-solid fa-spa text-indigo-500"></i> L&M Belleza Integral
+            </div>
+            <p class="mb-8 max-w-md mx-auto">Excelencia en tratamientos estéticos y bienestar. Tu transformación comienza con nosotros en el corazón de Medellín.</p>
+            <div class="border-t border-white/5 pt-8">
+                <p>&copy; 2025 Spa Belleza integral L&M. Todos los derechos reservados.</p>
+                <div class="mt-4 flex justify-center gap-4 text-xs font-bold uppercase tracking-widest">
+                    <span>Aceptamos:</span>
+                    <i class="fa-brands fa-cc-visa text-lg"></i>
+                    <i class="fa-brands fa-cc-mastercard text-lg"></i>
+                    <i class="fa-brands fa-nfc text-lg"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/573226416530" target="_blank" 
+       class="fixed bottom-8 right-8 bg-whatsapp text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl z-[100] hover:scale-110 transition-transform animate-bounce"
+       style="animation-duration: 3s;">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute -top-2 -left-2 bg-red-500 w-6 h-6 rounded-full text-[10px] flex items-center justify-center font-bold border-2 border-white animate-pulse">1</span>
+    </a>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+    </script>
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="18137476-c87e-45d2-9ff6-14b02d929b21"
+  data-lead-id="4e92f445-2f9f-4c34-bc3d-710e0e2b7adf"
+  async>
+</script>
+</body>
+</html>
