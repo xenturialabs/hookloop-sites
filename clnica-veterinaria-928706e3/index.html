@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria | Cuidado Profesional en Laureles, Medellín</title>
+    <meta name="description" content="Expertos en medicina veterinaria en Medellín, Laureles. Más de 450 opiniones avalan nuestro compromiso con la salud de tu mascota.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f59e0b', // amber-500
+                        secondary: '#fffbeb', // amber-50
+                        accent: '#d97706', // amber-600
+                        whatsapp: '#25D366',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(245, 158, 11, 0.3);
+            color: transparent;
+        }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-paw text-primary text-3xl"></i>
+                    <span class="font-heading text-xl font-black tracking-tight text-slate-900 uppercase">Clínica <span class="text-primary">Veterinaria</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="font-medium hover:text-primary transition-colors">Inicio</a>
+                    <a href="#servicios" class="font-medium hover:text-primary transition-colors">Servicios</a>
+                    <a href="#nosotros" class="font-medium hover:text-primary transition-colors">Por qué elegirnos</a>
+                    <a href="#contacto" class="font-medium hover:text-primary transition-colors">Contacto</a>
+                    <a href="https://wa.me/573153667173" target="_blank" class="bg-whatsapp text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform shadow-lg shadow-green-200">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-900 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden bg-white border-b absolute w-full left-0 px-4 py-6 shadow-xl" x-cloak>
+            <div class="flex flex-col space-y-4">
+                <a href="#inicio" @click="mobileMenu = false" class="text-lg font-semibold">Inicio</a>
+                <a href="#servicios" @click="mobileMenu = false" class="text-lg font-semibold">Servicios</a>
+                <a href="#nosotros" @click="mobileMenu = false" class="text-lg font-semibold">Por qué elegirnos</a>
+                <a href="#contacto" @click="mobileMenu = false" class="text-lg font-semibold">Contacto</a>
+                <a href="https://wa.me/573153667173" class="bg-whatsapp text-white text-center py-3 rounded-xl font-bold">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> Agendar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1600&q=80" 
+                 alt="Veterinaria Medellín" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+            <div class="max-w-3xl" data-aos="fade-right">
+                <span class="inline-block px-4 py-1 bg-primary/20 border border-primary/30 text-primary rounded-full text-sm font-bold tracking-widest uppercase mb-6">Salud Animal en Laureles</span>
+                <h1 class="font-heading text-5xl md:text-7xl text-white font-black leading-tight mb-6">
+                    El bienestar de tu mascota es <span class="text-primary italic">nuestra pasión.</span>
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl">
+                    Ofrecemos atención médica veterinaria de alta calidad en el corazón de Medellín. Expertos comprometidos con la salud y felicidad de tus mejores amigos.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/573153667173" class="bg-primary hover:bg-accent text-white px-10 py-5 rounded-2xl font-bold text-lg text-center transition-all shadow-xl shadow-amber-500/20 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-calendar-check"></i> Agendar Cita
+                    </a>
+                    <a href="tel:+573153667173" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-10 py-5 rounded-2xl font-bold text-lg text-center transition-all flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone"></i> Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE TICKER -->
+    <div class="bg-primary overflow-hidden py-6 border-y-4 border-accent relative z-20 shadow-2xl -mt-4 transform -rotate-1">
+        <div class="flex animate-marquee whitespace-nowrap">
+            <span class="text-white/40 font-black text-6xl uppercase tracking-widest px-4">URGENCIAS VETERINARIAS •</span>
+            <span class="text-white font-black text-6xl uppercase tracking-widest px-4">CLÍNICA VETERINARIA LAURELES •</span>
+            <span class="text-white/40 font-black text-6xl uppercase tracking-widest px-4">CUIDADO EXPERTO •</span>
+            <span class="text-white font-black text-6xl uppercase tracking-widest px-4">AMOR POR LOS ANIMALES •</span>
+            <!-- Repeat for loop -->
+            <span class="text-white/40 font-black text-6xl uppercase tracking-widest px-4">URGENCIAS VETERINARIAS •</span>
+            <span class="text-white font-black text-6xl uppercase tracking-widest px-4">CLÍNICA VETERINARIA LAURELES •</span>
+            <span class="text-white/40 font-black text-6xl uppercase tracking-widest px-4">CUIDADO EXPERTO •</span>
+            <span class="text-white font-black text-6xl uppercase tracking-widest px-4">AMOR POR LOS ANIMALES •</span>
+        </div>
+    </div>
+
+    <!-- REPUTATION STRIP -->
+    <section class="py-12 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8">
+            <div class="flex items-center gap-4 border-r-0 md:border-r pr-0 md:pr-12 border-slate-200">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Keep_icon_%282014-2020%29.svg" alt="Google" class="w-10 h-10 opacity-20 grayscale">
+                <div>
+                    <div class="flex text-amber-400 text-xl">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-sm font-bold text-slate-500 uppercase tracking-tighter">4.4 / 5.0 Rating</p>
+                </div>
+            </div>
+            <div class="text-center md:text-left">
+                <p class="text-2xl font-heading font-black text-slate-900">454+ Opiniones de Clientes</p>
+                <p class="text-primary font-bold">Excelencia comprobada en Google Maps</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION (BENTO GRID) -->
+    <section id="servicios" class="py-24 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-black mb-4">Servicios Integrales</h2>
+                <div class="w-24 h-2 bg-primary mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-600 max-w-2xl mx-auto text-lg">Todo lo que tu mascota necesita en un solo lugar, con tecnología de punta y manos expertas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Service 1 (Double Width) -->
+                <div class="md:col-span-2 group bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-amber-100 flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
+                    <div class="bg-amber-100 w-24 h-24 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-stethoscope text-4xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-3xl font-bold mb-4">Consulta Médica Especializada</h3>
+                        <p class="text-slate-600 text-lg leading-relaxed">Revisiones exhaustivas para prevenir y tratar cualquier afección. Contamos con médicos veterinarios altamente calificados para brindar el mejor diagnóstico.</p>
+                        <a href="https://wa.me/573153667173" class="inline-block mt-6 font-bold text-primary hover:text-accent underline decoration-2 underline-offset-4">Agendar revisión &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-amber-100 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-amber-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-syringe text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Vacunación y Desparasitación</h3>
+                    <p class="text-slate-600">Esquemas completos para proteger a tu mascota contra enfermedades virales y parasitarias.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-amber-100 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-amber-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-scissors text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Peluquería Canina y Felina</h3>
+                    <p class="text-slate-600">Corte y baño especializado para que luzcan y se sientan increíbles.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-amber-100 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-amber-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-microscope text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Laboratorio Clínico</h3>
+                    <p class="text-slate-600">Resultados rápidos y precisos para diagnósticos certeros inmediatos.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-amber-100 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-amber-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-kit-medical text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Cirugías y Urgencias</h3>
+                    <p class="text-slate-600">Quirófano equipado para procedimientos de tejidos blandos y emergencias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="nosotros" class="py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="flex-1" data-aos="fade-right">
+                    <h2 class="font-heading text-4xl md:text-5xl font-black mb-8 leading-tight">¿Por qué confiar la salud de tu mascota a nosotros?</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Experiencia y Profesionalismo</h4>
+                                <p class="text-slate-600">Años de trayectoria atendiendo casos complejos en la zona de Laureles.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Instalaciones Modernas</h4>
+                                <p class="text-slate-600">Equipos de última generación para diagnósticos por imagen y laboratorio.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Trato Humano y Cercano</h4>
+                                <p class="text-slate-600">Entendemos que son parte de tu familia. Los tratamos con el mismo amor que tú.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <a href="https://wa.me/573153667173" class="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-colors">
+                            Conocer más sobre nosotros <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-1 relative" data-aos="fade-left">
+                    <div class="absolute -inset-4 bg-primary/20 rounded-3xl transform rotate-3"></div>
+                    <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=800&q=80" 
+                         alt="Cuidado Veterinario" class="relative rounded-3xl shadow-2xl w-full h-[500px] object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-black mb-4">Lo que dicen nuestros clientes</h2>
+                <p class="text-slate-400">La confianza de la comunidad de Laureles es nuestro mayor orgullo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-primary/50 transition-colors" data-aos="fade-up">
+                    <div class="flex text-primary mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 italic mb-6">"La mejor atención en Laureles. Traje a mi perrito por una urgencia y la rapidez y el cariño con el que lo trataron fue excepcional. ¡Totalmente recomendados!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-slate-900">AM</div>
+                        <div>
+                            <p class="font-bold">Andrés Montoya</p>
+                            <p class="text-xs text-slate-500 uppercase font-semibold tracking-widest">Cliente Local</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-primary/50 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-primary mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 italic mb-6">"Son muy profesionales y las instalaciones impecables. Se nota el amor por los animales en cada detalle. Mi gata nunca ha estado en mejores manos."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-slate-900">CO</div>
+                        <div>
+                            <p class="font-bold">Carolina Ospina</p>
+                            <p class="text-xs text-slate-500 uppercase font-semibold tracking-widest">Cliente Local</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-primary/50 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-primary mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-slate-300 italic mb-6">"Excelente servicio de peluquería y vacunación. Siempre salgo muy conforme con la atención del personal. Un referente en Medellín."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-slate-900">JR</div>
+                        <div>
+                            <p class="font-bold">Jorge Restrepo</p>
+                            <p class="text-xs text-slate-500 uppercase font-semibold tracking-widest">Cliente Local</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="contacto" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div data-aos="fade-right">
+                    <h2 class="font-heading text-4xl font-black mb-8">Estamos cerca de ti</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-primary text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg mb-1">Dirección</p>
+                                <p class="text-slate-600">Cra 66B #33-17, Laureles - Estadio<br>Medellín, Antioquia, Colombia</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-clock text-primary text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg mb-1">Horario de Atención</p>
+                                <ul class="text-slate-600 space-y-1">
+                                    <li><span class="font-medium text-slate-900">Lunes - Viernes:</span> 9:00 AM - 6:00 PM</li>
+                                    <li><span class="font-medium text-slate-900">Sábado:</span> 9:00 AM - 2:00 PM</li>
+                                    <li><span class="font-medium text-slate-900 text-primary">Domingos y Festivos:</span> Cerrado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-phone text-primary text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg mb-1">Teléfono y WhatsApp</p>
+                                <p class="text-slate-600 mb-4">+57 315 3667173</p>
+                                <div class="flex gap-4">
+                                    <a href="tel:+573153667173" class="bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-accent transition-colors">Llamar ahora</a>
+                                    <a href="https://wa.me/573153667173" class="bg-whatsapp text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform">WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" class="relative">
+                    <div class="relative w-full h-[450px] rounded-3xl shadow-2xl overflow-hidden bg-slate-100 border-8 border-white">
+                        <iframe src="https://www.google.com/maps?q=Cl%C3%ADnica+Veterinaria+Cra+66B+%2333-17%2C+Laureles+-+Estadio%2C+Medell%C3%ADn%2C+Laureles%2C+Medell%C3%ADn%2C+Antioquia%2C+Colombia&hl=es&z=14&output=embed" 
+                                class="absolute inset-0 w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block border border-slate-100">
+                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Visítanos</p>
+                        <p class="font-heading font-black text-xl">Barrio Laureles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-50 pt-20 pb-10 border-t">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-paw text-primary text-3xl"></i>
+                        <span class="font-heading text-2xl font-black uppercase">Clínica <span class="text-primary">Veterinaria</span></span>
+                    </div>
+                    <p class="text-slate-500 leading-relaxed mb-6">
+                        Comprometidos con ofrecer servicios veterinarios de calidad en Medellín. Salud, bienestar y amor para tus mascotas.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6 uppercase tracking-widest">Navegación</h4>
+                    <ul class="space-y-4 text-slate-600">
+                        <li><a href="#inicio" class="hover:text-primary transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-primary transition-colors">Servicios</a></li>
+                        <li><a href="#nosotros" class="hover:text-primary transition-colors">Por qué elegirnos</a></li>
+                        <li><a href="#contacto" class="hover:text-primary transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6 uppercase tracking-widest">Legal</h4>
+                    <ul class="space-y-4 text-slate-600">
+                        <li><a href="#" class="hover:text-primary transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Tratamiento de Datos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-200 text-center text-slate-400 text-sm">
+                <p>© 2025 Clínica Veterinaria. Todos los derechos reservados. Medellín, Colombia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP -->
+    <a href="https://wa.me/573153667173" 
+       target="_blank"
+       class="fixed bottom-8 right-8 z-50 bg-whatsapp text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform animate-bounce group">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-20 bg-white text-slate-900 text-sm font-bold px-4 py-2 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border">
+            ¡Hablemos por WhatsApp!
+        </span>
+    </a>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="c6896654-9523-4b1b-8032-0b24830b81e6"
+  data-lead-id="9ffaec5a-5424-4784-89e6-78111e36c1bf"
+  async>
+</script>
+</body>
+</html>
