@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal X Sabaneta | Gimnasio de Alto Rendimiento</title>
+    <meta name="description" content="Entrena como una bestia en Animal X Sabaneta. El mejor box de entrenamiento funcional y pesas en Sabaneta, Antioquia.">
+    
+    <!-- Fonts: Inter & Bebas Neue (Fitness Dynamic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons & Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js CDN -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#b91c1c', // red-700
+                        secondary: '#fef2f2', // red-50
+                        accent: '#dc2626', // red-600
+                        whatsapp: '#25D366',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Bebas Neue', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 20s linear infinite;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="font-sans bg-white text-slate-900 overflow-x-hidden" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-2">
+                        <span class="text-3xl font-heading text-primary tracking-tighter italic">ANIMAL X</span>
+                        <span class="text-sm font-bold bg-primary text-white px-2 py-0.5 rounded">SABANETA</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="font-semibold hover:text-primary transition-colors">Inicio</a>
+                    <a href="#servicios" class="font-semibold hover:text-primary transition-colors">Servicios</a>
+                    <a href="#nosotros" class="font-semibold hover:text-primary transition-colors">Nosotros</a>
+                    <a href="#ubicacion" class="font-semibold hover:text-primary transition-colors">Ubicación</a>
+                    <a href="https://wa.me/573042436395" target="_blank" class="bg-whatsapp text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform shadow-lg shadow-green-200">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-700 hover:text-primary p-2">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-cloak
+             class="md:hidden bg-white border-b border-slate-100 shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a @click="mobileMenu = false" href="#inicio" class="block py-3 font-bold border-b border-slate-50">Inicio</a>
+                <a @click="mobileMenu = false" href="#servicios" class="block py-3 font-bold border-b border-slate-50">Servicios</a>
+                <a @click="mobileMenu = false" href="#nosotros" class="block py-3 font-bold border-b border-slate-50">Nosotros</a>
+                <a @click="mobileMenu = false" href="#ubicacion" class="block py-3 font-bold border-b border-slate-50">Ubicación</a>
+                <div class="pt-4">
+                    <a href="https://wa.me/573042436395" class="bg-whatsapp text-white w-full py-4 rounded-xl font-bold flex justify-center items-center gap-2">
+                        <i class="fa-brands fa-whatsapp"></i> Contactar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Bg Image with Dark Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80" alt="Gimnasio Animal X" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center md:text-left w-full">
+            <div class="max-w-3xl" data-aos="fade-right">
+                <span class="inline-block bg-primary px-4 py-1 text-white font-bold uppercase tracking-widest text-sm mb-6 rounded-sm">Estilo de Vida Animal X</span>
+                <h1 class="text-5xl md:text-8xl font-heading text-white leading-none mb-6">
+                    DESPIERTA TU <span class="text-primary italic">INSTINTO</span> ANIMAL
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl font-light">
+                    Transforma tu cuerpo y mente en el box de Sabaneta. Entrenamiento funcional de alta intensidad diseñado para superar tus propios límites.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/573042436395" class="bg-primary hover:bg-accent text-white px-10 py-5 rounded-full font-bold text-lg text-center transition-all shadow-xl shadow-primary/20 hover:-translate-y-1">
+                        Solicitar Cotización
+                    </a>
+                    <a href="tel:+573042436395" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-full font-bold text-lg text-center hover:bg-white/20 transition-all">
+                        <i class="fa-solid fa-phone mr-2"></i> Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- INFINITE TICKER -->
+    <div class="bg-slate-900 py-6 overflow-hidden border-y border-white/10">
+        <div class="animate-marquee whitespace-nowrap flex items-center">
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">ANIMAL X SABANETA</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">•</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">ENTRENA COMO UNA BESTIA</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">•</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">DISCIPLINA</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">•</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">FUERZA BRUTA</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">•</span>
+            <!-- Repeat for seamless loop -->
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">ANIMAL X SABANETA</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">•</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">ENTRENA COMO UNA BESTIA</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">•</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">DISCIPLINA</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">•</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">FUERZA BRUTA</span>
+            <span class="text-slate-100/20 font-heading text-7xl uppercase mx-4">•</span>
+        </div>
+    </div>
+
+    <!-- REPUTATION STRIP -->
+    <section class="bg-secondary py-8 border-b border-red-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="flex text-yellow-500">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <span class="font-bold text-xl text-slate-800">4.3 / 5</span>
+            </div>
+            <div class="h-8 w-px bg-red-200 hidden md:block"></div>
+            <div class="flex items-center gap-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Maps_icon_%282020%29.svg" alt="Google" class="w-6 h-6">
+                <p class="font-semibold text-slate-700 italic">"Excelencia comprobada en Google Maps"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS (Bento Grid) -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-5xl md:text-6xl text-slate-900 mb-4 uppercase">Nuestra Tribu, Tus Reglas</h2>
+                <div class="w-24 h-2 bg-primary mx-auto mb-6"></div>
+                <p class="text-slate-600 max-w-2xl mx-auto">Ofrecemos un sistema de entrenamiento revolucionario que combina lo mejor de varias disciplinas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Service 1: Large (Bento) -->
+                <div data-aos="fade-up" class="md:col-span-2 group relative overflow-hidden rounded-3xl bg-slate-900 aspect-video md:aspect-auto h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Cross Training" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent p-8 flex flex-col justify-end">
+                        <i class="fa-solid fa-fire-flame-curved text-primary text-4xl mb-4"></i>
+                        <h3 class="font-heading text-4xl text-white mb-2">Entrenamiento Funcional</h3>
+                        <p class="text-slate-300 max-w-md">Rutinas de alta intensidad que preparan tu cuerpo para cualquier desafío físico real.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div data-aos="fade-up" class="group bg-secondary p-8 rounded-3xl border border-red-100 hover:shadow-2xl hover:shadow-red-200/50 transition-all flex flex-col justify-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-dumbbell text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Pesas y Fuerza</h3>
+                    <p class="text-slate-600">Zona de musculación completa con equipos de primer nivel para hipertrofia y potencia.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div data-aos="fade-up" class="group bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition-all flex flex-col justify-center">
+                    <div class="w-16 h-16 bg-slate-200 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-heart-pulse text-red-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Zona Cardiovascular</h3>
+                    <p class="text-slate-600">Mejora tu resistencia con máquinas de última generación y circuitos de HIIT.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div data-aos="fade-up" class="group bg-white p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition-all flex flex-col justify-center">
+                    <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Clases Grupales</h3>
+                    <p class="text-slate-600">Siente la energía de la tribu con instructores que te motivarán a dar el 100%.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div data-aos="fade-up" class="group bg-slate-900 p-8 rounded-3xl transition-all flex flex-col justify-center overflow-hidden relative">
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-person-running text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Personal Trainer</h3>
+                        <p class="text-slate-400">Asesoría individualizada para alcanzar tus objetivos de manera eficiente.</p>
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 opacity-10">
+                        <i class="fa-solid fa-bolt text-9xl text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUÉ ELEGIRNOS (Split Screen) -->
+    <section id="nosotros" class="py-24 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="font-heading text-5xl text-slate-900 mb-8">¿POR QUÉ ANIMAL X SABANETA?</h2>
+                    <p class="text-lg text-slate-600 mb-10">No somos un gimnasio convencional. Somos un centro de transformación física y mental con una metodología probada.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                <i class="fa-solid fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-slate-900">Comunidad Imparable</h4>
+                                <p class="text-slate-600">Entrena rodeado de personas que comparten tu misma hambre de éxito.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                <i class="fa-solid fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-slate-900">Entrenadores Élite</h4>
+                                <p class="text-slate-600">Expertos certificados que te guiarán en cada técnica para evitar lesiones.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                <i class="fa-solid fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-slate-900">Ambiente Motivador</h4>
+                                <p class="text-slate-600">Música, diseño y energía diseñados para que nunca quieras faltar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl rotate-3 group">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=80" alt="Entrenamiento Animal X" class="w-full h-[500px] object-cover group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-full h-full border-4 border-primary rounded-2xl -z-0"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="font-heading text-5xl mb-16 uppercase">Lo que dice la tribu</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors" data-aos="fade-up">
+                    <div class="flex justify-center text-yellow-500 mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-slate-300 mb-6">"El mejor lugar para entrenar en Sabaneta. La energía de las clases es increíble y el cambio físico se nota en semanas."</p>
+                    <p class="font-bold">— Carlos Martínez</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-center text-yellow-500 mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-slate-300 mb-6">"Excelente comunidad. Los entrenadores están siempre pendientes de tu técnica. Recomendado 100%."</p>
+                    <p class="font-bold">— Juliana Restrepo</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-center text-yellow-500 mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="italic text-slate-300 mb-6">"Muy buen ambiente, máquinas de calidad y gente muy bacana. El método Animal X es otro nivel."</p>
+                    <p class="font-bold">— Andrés Felipe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACION & CONTACTO -->
+    <section id="ubicacion" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="font-heading text-5xl text-slate-900 mb-8 uppercase">Ven a Conocernos</h2>
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <span class="text-lg font-medium">Cl. 61 Sur #43a53, Sabaneta, Antioquia, Colombia</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <span class="text-lg font-medium">+57 304 2436395</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div class="text-lg">
+                                <p><span class="font-bold">Lunes - Viernes:</span> 9:00 AM - 6:00 PM</p>
+                                <p><span class="font-bold">Sábado:</span> 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/573042436395" class="inline-block bg-primary text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-lg hover:bg-accent transition-all">
+                        ¡Agendar Clase de Prueba!
+                    </a>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <div class="relative w-full h-[450px] rounded-3xl shadow-2xl overflow-hidden bg-slate-100 border-8 border-white">
+                        <iframe src="https://www.google.com/maps?q=Animal+X+Sabaneta+Cl.+61+Sur+%2343a53%2C+Sabaneta%2C+Antioquia%2C+Colombia&hl=es&z=15&output=embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                        <noscript>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Animal%20X%20Sabaneta" target="_blank" class="flex items-center justify-center h-full text-primary font-bold">Ver en Google Maps</a>
+                        </noscript>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 py-16 text-slate-400 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <a href="#" class="flex items-center gap-2 mb-4 justify-center md:justify-start">
+                        <span class="text-3xl font-heading text-white tracking-tighter italic">ANIMAL X</span>
+                        <span class="text-sm font-bold bg-primary text-white px-2 py-0.5 rounded">SABANETA</span>
+                    </a>
+                    <p class="max-w-xs">El box de entrenamiento funcional más potente de Sabaneta. Únete a la tribu hoy.</p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-white font-bold mb-2">Contacto Directo</p>
+                    <a href="tel:+573042436395" class="block text-2xl font-bold text-primary mb-2">+57 304 2436395</a>
+                    <p>Sabaneta, Antioquia, CO</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-white/5 text-center text-sm">
+                <p>&copy; 2025 Animal X Sabaneta. Todos los derechos reservados. | Diseñado para la Excelencia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/573042436395" target="_blank" class="fixed bottom-6 right-6 z-[99] bg-whatsapp text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform animate-bounce group" title="Escríbenos por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-full mr-4 bg-white text-slate-900 px-4 py-2 rounded-lg text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">¿Hablamos por WhatsApp?</span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+        });
+    </script>
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="5ce29656-22fe-4b72-9160-0a4142e3c6d1"
+  data-lead-id="ec1361e1-d436-40c7-89fa-a52413f5ca51"
+  async>
+</script>
+</body>
+</html>
