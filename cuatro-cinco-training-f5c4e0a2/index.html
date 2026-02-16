@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuatro Cinco Training | Gimnasio en Sabaneta - Supera tus Límites</title>
+    <meta name="description" content="Entrenamiento de alto rendimiento en Sabaneta. Cuatro Cinco Training: Fuerza, disciplina y resultados reales.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fef2f2',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white overflow-x-hidden" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 glass border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-heading text-2xl font-black tracking-tighter text-primary-700 italic">
+                        CUATRO CINCO <span class="text-slate-900">TRAINING</span>
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="font-medium hover:text-primary-700 transition">Inicio</a>
+                    <a href="#servicios" class="font-medium hover:text-primary-700 transition">Servicios</a>
+                    <a href="#nosotros" class="font-medium hover:text-primary-700 transition">Por qué Elegirnos</a>
+                    <a href="#contacto" class="font-medium hover:text-primary-700 transition">Contacto</a>
+                    <a href="https://wa.me/573167309857" target="_blank" class="bg-[#25D366] text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-900 p-2">
+                        <i class="fa-solid" :class="mobileMenu ? 'fa-xmark' : 'fa-bars-staggered'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak class="md:hidden bg-white border-t border-slate-100 px-4 pt-4 pb-6 space-y-4 shadow-xl">
+            <a href="#inicio" @click="mobileMenu = false" class="block text-lg font-semibold">Inicio</a>
+            <a href="#servicios" @click="mobileMenu = false" class="block text-lg font-semibold">Servicios</a>
+            <a href="#nosotros" @click="mobileMenu = false" class="block text-lg font-semibold">Por qué Elegirnos</a>
+            <a href="#contacto" @click="mobileMenu = false" class="block text-lg font-semibold">Contacto</a>
+            <a href="https://wa.me/573167309857" class="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold flex justify-center items-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Contactar por WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80" alt="Gimnasio Cuatro Cinco Training" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-slate-900/70"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="max-w-3xl" data-aos="fade-right">
+                <span class="inline-block px-4 py-1 rounded-full bg-primary-700 text-white font-bold text-sm uppercase tracking-widest mb-6">
+                    Sabaneta, Antioquia
+                </span>
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl text-white font-black leading-none mb-6">
+                    DOMINA TU <br><span class="text-primary-600">POTENCIAL</span>
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 max-w-xl leading-relaxed">
+                    No somos solo un gimnasio, somos tu próximo nivel. Entrenamiento personalizado y comunidad de alto rendimiento en el corazón de Sabaneta.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contacto" class="px-8 py-5 bg-primary-700 hover:bg-primary-600 text-white rounded-xl font-black text-center transition-all transform hover:scale-105 shadow-2xl uppercase tracking-wider">
+                        Solicitar Información
+                    </a>
+                    <a href="tel:+573167309857" class="px-8 py-5 bg-white hover:bg-slate-100 text-slate-900 rounded-xl font-black text-center transition-all shadow-xl uppercase tracking-wider flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone"></i> Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE TICKER -->
+    <div class="bg-primary-700 py-6 overflow-hidden border-y-4 border-black flex">
+        <div class="flex animate-marquee whitespace-nowrap">
+            <span class="text-white/30 font-heading text-6xl font-black uppercase tracking-tighter mx-4">Disciplina • Fuerza • Comunidad • Resultados • Entrenamiento •</span>
+            <span class="text-white/30 font-heading text-6xl font-black uppercase tracking-tighter mx-4">Disciplina • Fuerza • Comunidad • Resultados • Entrenamiento •</span>
+            <span class="text-white/30 font-heading text-6xl font-black uppercase tracking-tighter mx-4">Disciplina • Fuerza • Comunidad • Resultados • Entrenamiento •</span>
+        </div>
+    </div>
+
+    <!-- REPUTATION STRIP -->
+    <div class="bg-white py-8 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="flex text-yellow-400 text-xl">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <span class="font-bold text-xl text-slate-800">4.7 / 5.0</span>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50 px-6 py-2 rounded-full border border-slate-200">
+                <i class="fa-brands fa-google text-blue-500 text-2xl"></i>
+                <span class="text-slate-600 font-medium italic">"Excelencia comprobada en Google Maps"</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICIOS BENTO BOX -->
+    <section id="servicios" class="py-24 bg-primary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl md:text-5xl font-black text-slate-900 mb-4">NUESTROS SERVICIOS</h2>
+                <div class="w-24 h-2 bg-primary-700 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Main Feature Card -->
+                <div class="md:col-span-2 bg-slate-900 rounded-3xl p-8 md:p-12 relative overflow-hidden group min-h-[400px]" data-aos="fade-up">
+                    <div class="relative z-10 h-full flex flex-col justify-end">
+                        <i class="fa-solid fa-dumbbell text-primary-600 text-6xl mb-6"></i>
+                        <h3 class="text-3xl md:text-4xl font-heading font-black text-white mb-4 italic uppercase">Entrenamiento Personalizado</h3>
+                        <p class="text-slate-300 text-lg max-w-md">Diseñamos planes específicos basados en tus objetivos: pérdida de peso, ganancia muscular o mejora atlética.</p>
+                    </div>
+                    <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+                        <i class="fa-solid fa-bolt-lightning text-[300px] text-white transform rotate-12"></i>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl hover:shadow-2xl transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-700 transition-colors">
+                        <i class="fa-solid fa-users text-primary-700 text-3xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-black mb-4 uppercase">Cross Training</h3>
+                    <p class="text-slate-600">Sesiones grupales de alta intensidad diseñadas para desafiar tu resistencia y fuerza máxima.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl hover:shadow-2xl transition-all group" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-700 transition-colors">
+                        <i class="fa-solid fa-heart-pulse text-primary-700 text-3xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-black mb-4 uppercase">Acondicionamiento Físico</h3>
+                    <p class="text-slate-600">Mejora tu salud cardiovascular y movilidad con rutinas dinámicas y seguras.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl hover:shadow-2xl transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-700 transition-colors">
+                        <i class="fa-solid fa-apple-whole text-primary-700 text-3xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-black mb-4 uppercase">Asesoría Nutricional</h3>
+                    <p class="text-slate-600">Guía completa para alimentar tus entrenamientos y ver resultados duraderos.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl hover:shadow-2xl transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-700 transition-colors">
+                        <i class="fa-solid fa-stopwatch text-primary-700 text-3xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-black mb-4 uppercase">Entrenamiento HIIT</h3>
+                    <p class="text-slate-600">Máxima quema de calorías en el menor tiempo posible con intervalos de alta intensidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="nosotros" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="font-heading text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">MÁS QUE UN GIMNASIO, <br><span class="text-primary-700">TU MEJOR VERSIÓN.</span></h2>
+                    <p class="text-lg text-slate-600 mb-10 leading-relaxed">
+                        En Cuatro Cinco Training, entendemos que cada cuerpo es diferente. Por eso, combinamos ciencia deportiva, motivación constante y el mejor ambiente de Sabaneta.
+                    </p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-primary-700 rounded-lg flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Entrenadores Certificados</h4>
+                                <p class="text-slate-500">Expertos dedicados a corregir tu técnica y maximizar tu progreso.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-primary-700 rounded-lg flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Equipamiento Moderno</h4>
+                                <p class="text-slate-500">Máquinas de última generación y zonas de peso libre optimizadas.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-primary-700 rounded-lg flex items-center justify-center text-white">
+                                <i class="fa-solid fa-check text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Comunidad Motivadora</h4>
+                                <p class="text-slate-500">Entrena en un ambiente donde todos nos impulsamos a mejorar.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                    <div class="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=80" alt="Instalaciones Cuatro Cinco Training" class="w-full">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-full h-full bg-primary-700 -z-10 rounded-[2rem]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-black mb-4">VOCES DEL ÉXITO</h2>
+                <div class="w-20 h-1 bg-primary-700 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 relative" data-aos="fade-up">
+                    <i class="fa-solid fa-quote-left text-primary-600 text-4xl mb-4 opacity-50"></i>
+                    <p class="text-lg italic mb-6 text-slate-300">"El mejor lugar de Sabaneta para entrenar. Los profes están súper pendientes de la técnica, algo que no encuentras en otros gimnasios."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-primary-700 rounded-full flex items-center justify-center font-bold">SM</div>
+                        <div>
+                            <p class="font-bold">Santiago Mesa</p>
+                            <div class="flex text-yellow-500 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 relative" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-quote-left text-primary-600 text-4xl mb-4 opacity-50"></i>
+                    <p class="text-lg italic mb-6 text-slate-300">"He bajado 10 kilos en 4 meses gracias al acompañamiento y las clases de HIIT. La motivación aquí es otro nivel."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-primary-700 rounded-full flex items-center justify-center font-bold">VP</div>
+                        <div>
+                            <p class="font-bold">Valentina Palacio</p>
+                            <div class="flex text-yellow-500 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 relative" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-quote-left text-primary-600 text-4xl mb-4 opacity-50"></i>
+                    <p class="text-lg italic mb-6 text-slate-300">"Las instalaciones son impecables y el ambiente es muy profesional. Recomiendo Cuatro Cinco Training a ojos cerrados."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-primary-700 rounded-full flex items-center justify-center font-bold">JR</div>
+                        <div>
+                            <p class="font-bold">Juan Restrepo</p>
+                            <div class="flex text-yellow-500 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="contacto" class="py-24 bg-primary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Info -->
+                    <div class="p-12 md:p-16">
+                        <h2 class="font-heading text-4xl font-black mb-8 text-slate-900">VISÍTANOS</h2>
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-700 shrink-0">
+                                    <i class="fa-solid fa-location-dot text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg">Dirección</p>
+                                    <p class="text-slate-600 italic leading-relaxed">75 B Sur 130, Cra. 45, Sabaneta, Antioquia, Colombia</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-700 shrink-0">
+                                    <i class="fa-solid fa-clock text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg text-slate-900">Horarios de Atención</p>
+                                    <ul class="text-slate-600 space-y-1 mt-2">
+                                        <li class="flex justify-between w-full"><span>Lunes - Viernes:</span> <span class="font-semibold">6:00 AM - 9:00 PM</span></li>
+                                        <li class="flex justify-between w-full"><span>Sábados:</span> <span class="font-semibold">8:00 AM - 4:00 PM</span></li>
+                                        <li class="flex justify-between w-full"><span>Domingos:</span> <span class="font-semibold">Cerrado</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-700 shrink-0">
+                                    <i class="fa-solid fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg">Teléfono & WhatsApp</p>
+                                    <p class="text-slate-600">+57 316 7309857</p>
+                                </div>
+                            </div>
+
+                            <div class="pt-6 space-y-4">
+                                <a href="https://wa.me/573167309857" class="block w-full text-center bg-[#25D366] text-white py-4 rounded-xl font-black text-lg hover:bg-green-600 transition shadow-lg uppercase tracking-wide">
+                                    ¡Empieza hoy por WhatsApp!
+                                </a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Cuatro%20Cinco%20Training&query_place_id=ChIJVeVX1zqDRo4RheA5MGLJmRY" target="_blank" class="block w-full text-center bg-slate-900 text-white py-4 rounded-xl font-black text-lg hover:bg-slate-800 transition uppercase tracking-wide">
+                                    Ver en Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="relative min-h-[400px]">
+                        <iframe src="https://www.google.com/maps?q=Cuatro+Cinco+Training+75+B+Sur+130%2C+Cra.+45%2C+Sabaneta%2C+Antioquia%2C+Colombia&hl=es&z=16&output=embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-8">
+                <span class="font-heading text-3xl font-black tracking-tighter text-primary-700 italic">
+                    CUATRO CINCO <span class="text-white">TRAINING</span>
+                </span>
+                <p class="mt-4 text-slate-400 max-w-md mx-auto italic">Transformando vidas a través del deporte y la disciplina en Sabaneta.</p>
+            </div>
+            
+            <div class="h-px w-full bg-slate-800 mb-8"></div>
+            
+            <p class="text-slate-500 text-sm">
+                &copy; 2025 Cuatro Cinco Training. Todos los derechos reservados. <br>
+                Sabaneta, Antioquia - Colombia.
+            </p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/573167309857" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform animate-pulse">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="d33d2775-c00e-48aa-aeaa-6f97852477be"
+  data-lead-id="fd72b906-a3e8-4f14-b48f-61671a65f3d1"
+  async>
+</script>
+</body>
+</html>
