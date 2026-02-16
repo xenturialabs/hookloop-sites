@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magnolia chaves beauty studio | Centro de Estética en El Poblado, Medellín</title>
-    <meta name="description" content="Descubre la excelencia en estética en Magnolia chaves beauty studio. Ubicados en El Tesoro, Medellín. Tratamientos personalizados para tu belleza y bienestar.">
-
+    <title>Magnolia Chaves Beauty Studio | Centro de Estética en Medellín</title>
+    <meta name="description" content="Descubre la excelencia en estética en Medellín, El Poblado. Tratamientos profesionales para realzar tu belleza natural.">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
     <!-- CDNs -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -22,13 +22,12 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
+                        indigo: {
                             50: '#eef2ff',
-                            100: '#e0e7ff',
                             500: '#6366f1',
                             600: '#4f46e5',
-                            700: '#4338ca',
-                        }
+                        },
+                        whatsapp: '#25D366',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -36,11 +35,10 @@
                     },
                     animation: {
                         'marquee': 'marquee 30s linear infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         marquee: {
-                            '0%': { transform: 'translateX(0)' },
+                            '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-50%)' },
                         }
                     }
@@ -49,343 +47,286 @@
         }
     </script>
 
-    <style type="text/tailwindcss">
-        @layer components {
-            .glass-nav {
-                @apply bg-white/80 backdrop-blur-md border-b border-white/20 sticky top-0 z-50;
-            }
-            .btn-primary {
-                @apply bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2;
-            }
-            .btn-whatsapp {
-                @apply bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-3 rounded-full font-bold transition-all flex items-center justify-center gap-2 shadow-lg;
-            }
-            .bento-card {
-                @apply bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative;
-            }
+    <style type="text/css">
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-        }
+        [x-cloak] { display: none !important; }
+        .bento-item { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bento-item:hover { transform: translateY(-5px); }
     </style>
 </head>
 <body class="font-sans text-slate-900 bg-white" x-data="{ mobileMenu: false }">
 
     <!-- NAVBAR -->
-    <nav class="glass-nav">
+    <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="font-heading text-2xl font-bold text-primary-600 tracking-tight">Magnolia chaves</span>
+                    <span class="font-heading text-2xl font-black tracking-tighter text-indigo-600">
+                        MAGNOLIA <span class="text-slate-800">CHAVES</span>
+                    </span>
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#inicio" class="text-sm font-medium hover:text-primary-600 transition-colors">Inicio</a>
-                    <a href="#servicios" class="text-sm font-medium hover:text-primary-600 transition-colors">Servicios</a>
-                    <a href="#beneficios" class="text-sm font-medium hover:text-primary-600 transition-colors">Beneficios</a>
-                    <a href="#ubicacion" class="text-sm font-medium hover:text-primary-600 transition-colors">Ubicación</a>
-                    <a href="https://wa.me/573122883315" target="_blank" class="btn-whatsapp text-sm">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        Agendar Cita
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">Inicio</a>
+                    <a href="#servicios" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">Servicios</a>
+                    <a href="#nosotros" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">Por qué Elegirnos</a>
+                    <a href="#contacto" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">Contacto</a>
+                    <a href="https://wa.me/573122883315" target="_blank" class="bg-whatsapp text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:scale-105 transition shadow-lg shadow-green-200">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
                     </a>
                 </div>
 
                 <!-- Mobile Button -->
-                <div class="md:hidden flex items-center">
-                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 p-2">
-                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
-                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu"></i>
+                <div class="md:hidden">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-800 p-2">
+                        <i class="fa-solid" :class="mobileMenu ? 'fa-xmark' : 'fa-bars-staggered'"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div x-show="mobileMenu" 
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-4"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             class="md:hidden bg-white border-b border-slate-100">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#inicio" @click="mobileMenu = false" class="block px-3 py-4 text-base font-medium border-b border-slate-50">Inicio</a>
-                <a href="#servicios" @click="mobileMenu = false" class="block px-3 py-4 text-base font-medium border-b border-slate-50">Servicios</a>
-                <a href="#beneficios" @click="mobileMenu = false" class="block px-3 py-4 text-base font-medium border-b border-slate-50">Beneficios</a>
-                <a href="#ubicacion" @click="mobileMenu = false" class="block px-3 py-4 text-base font-medium">Ubicación</a>
-                <div class="pt-4">
-                    <a href="https://wa.me/573122883315" class="btn-whatsapp w-full justify-center">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
+        <div x-show="mobileMenu" x-cloak x-transition class="md:hidden bg-white border-t p-4 space-y-4 shadow-xl">
+            <a href="#inicio" @click="mobileMenu = false" class="block text-lg font-medium py-2">Inicio</a>
+            <a href="#servicios" @click="mobileMenu = false" class="block text-lg font-medium py-2">Servicios</a>
+            <a href="#nosotros" @click="mobileMenu = false" class="block text-lg font-medium py-2">Por qué Elegirnos</a>
+            <a href="#contacto" @click="mobileMenu = false" class="block text-lg font-medium py-2">Contacto</a>
+            <a href="https://wa.me/573122883315" class="w-full bg-whatsapp text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp"></i> Contactar ahora
+            </a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="inicio" class="relative h-[90vh] flex items-center overflow-hidden bg-slate-900">
+    <header id="inicio" class="relative h-[90vh] flex items-center overflow-hidden bg-slate-900 pt-20">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80" 
-                 class="w-full h-full object-cover opacity-60" 
-                 alt="Magnolia Chaves Beauty Studio Interior">
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent"></div>
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80" alt="Spa Background" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 to-transparent"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-2xl" data-aos="fade-right">
-                <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-widest text-primary-100 uppercase bg-primary-600/30 rounded-full border border-primary-500/30 backdrop-blur-sm">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-indigo-600/20 text-indigo-400 text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-sm border border-indigo-500/30">
                     Estética de Élite en Medellín
                 </span>
-                <h1 class="font-heading text-5xl md:text-7xl text-white mb-6 leading-tight">
-                    Resalta tu <span class="italic text-primary-400">belleza natural</span> con expertos
+                <h1 class="font-heading text-5xl md:text-7xl text-white font-black leading-tight mb-6">
+                    Realza tu belleza, <br>
+                    <span class="text-indigo-400">eleva tu confianza.</span>
                 </h1>
-                <p class="text-xl text-slate-200 mb-10 leading-relaxed">
-                    Tratamientos estéticos avanzados diseñados para renovar tu piel y bienestar en el exclusivo sector de El Tesoro, El Poblado.
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
+                    En Magnolia Chaves Beauty Studio, combinamos tecnología avanzada y cuidado personalizado para brindarte resultados excepcionales en El Poblado.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/573122883315" class="btn-primary">
+                    <a href="https://wa.me/573122883315" class="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-500 transition-all text-center shadow-xl shadow-indigo-500/20 transform hover:-translate-y-1">
                         Solicitar Cotización
-                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="tel:+573122883315" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+573122883315" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all text-center backdrop-blur-md">
                         Llamar ahora
                     </a>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- MARQUESINA DINÁMICA -->
-    <div class="bg-primary-600 py-6 overflow-hidden border-y border-primary-500">
-        <div class="marquee-container">
-            <div class="flex animate-marquee space-x-12 items-center">
-                <span class="text-slate-100/30 font-black text-6xl uppercase tracking-widest">MAGNOLIA CHAVES BEAUTY STUDIO</span>
-                <span class="text-slate-100/30 font-black text-6xl uppercase tracking-widest">ESTÉTICA AVANZADA</span>
-                <span class="text-slate-100/30 font-black text-6xl uppercase tracking-widest">BIENESTAR & BELLEZA</span>
-                <span class="text-slate-100/30 font-black text-6xl uppercase tracking-widest">MEDELLÍN EL TESORO</span>
-                <!-- Repeat for infinite effect -->
-                <span class="text-slate-100/30 font-black text-6xl uppercase tracking-widest">MAGNOLIA CHAVES BEAUTY STUDIO</span>
-                <span class="text-slate-100/30 font-black text-6xl uppercase tracking-widest">ESTÉTICA AVANZADA</span>
-                <span class="text-slate-100/30 font-black text-6xl uppercase tracking-widest">BIENESTAR & BELLEZA</span>
-                <span class="text-slate-100/30 font-black text-6xl uppercase tracking-widest">MEDELLÍN EL TESORO</span>
-            </div>
+    <!-- MARQUEE -->
+    <div class="bg-indigo-600 py-6 overflow-hidden flex whitespace-nowrap border-y border-indigo-500 relative z-20">
+        <div class="animate-marquee flex gap-12 items-center">
+            <span class="text-slate-100 font-black text-4xl md:text-6xl uppercase tracking-widest opacity-40">CENTRO DE ESTÉTICA</span>
+            <span class="text-white font-black text-4xl md:text-6xl uppercase tracking-widest">MAGNOLIA CHAVES</span>
+            <span class="text-slate-100 font-black text-4xl md:text-6xl uppercase tracking-widest opacity-40">MEDELLÍN - EL TESORO</span>
+            <span class="text-white font-black text-4xl md:text-6xl uppercase tracking-widest">BIENESTAR Y SALUD</span>
+            <span class="text-slate-100 font-black text-4xl md:text-6xl uppercase tracking-widest opacity-40">EXPERIENCIA PREMIUM</span>
+        </div>
+        <div class="animate-marquee flex gap-12 items-center ml-12">
+            <span class="text-slate-100 font-black text-4xl md:text-6xl uppercase tracking-widest opacity-40">CENTRO DE ESTÉTICA</span>
+            <span class="text-white font-black text-4xl md:text-6xl uppercase tracking-widest">MAGNOLIA CHAVES</span>
+            <span class="text-slate-100 font-black text-4xl md:text-6xl uppercase tracking-widest opacity-40">MEDELLÍN - EL TESORO</span>
+            <span class="text-white font-black text-4xl md:text-6xl uppercase tracking-widest">BIENESTAR Y SALUD</span>
+            <span class="text-slate-100 font-black text-4xl md:text-6xl uppercase tracking-widest opacity-40">EXPERIENCIA PREMIUM</span>
         </div>
     </div>
 
-    <!-- REPUTACIÓN / TRUST STRIP -->
-    <div class="bg-primary-50 py-8">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="flex text-yellow-400">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
+    <!-- TRUST STRIP -->
+    <section class="bg-indigo-50 py-10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8 border-b border-indigo-100 pb-10">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-3 rounded-2xl shadow-sm border border-indigo-100">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Center_Logo.png" alt="Google" class="h-8 w-auto">
                 </div>
-                <span class="font-bold text-lg">4.1 / 5</span>
+                <div>
+                    <div class="flex text-amber-400 mb-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-sm font-bold text-slate-700">4.1 Estrellas <span class="text-slate-400 font-normal">(42 opiniones)</span></p>
+                </div>
             </div>
-            <div class="h-4 w-px bg-slate-300 hidden md:block"></div>
-            <p class="text-slate-600 font-medium">
-                <i class="fa-brands fa-google mr-2 text-primary-600"></i>
-                Excelencia comprobada en Google Maps (42 opiniones)
+            <div class="h-8 w-[1px] bg-indigo-200 hidden md:block"></div>
+            <p class="text-indigo-600 font-semibold italic text-center md:text-left">
+                "Excelencia comprobada en Google Maps"
             </p>
         </div>
-    </div>
+    </section>
 
-    <!-- SERVICIOS BENTO GRID -->
+    <!-- SERVICIOS BENTO -->
     <section id="servicios" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="font-heading text-4xl md:text-5xl mb-4">Nuestros Servicios</h2>
-                <div class="h-1.5 w-24 bg-primary-600 mx-auto rounded-full mb-6"></div>
-                <p class="text-slate-600 max-w-2xl mx-auto">Soluciones integrales de estética con tecnología de vanguardia y atención personalizada.</p>
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl md:text-5xl font-black mb-4">Nuestros Servicios</h2>
+                <div class="h-1.5 w-24 bg-indigo-600 mx-auto rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Main Service Card -->
-                <div class="md:col-span-2 bento-card bg-slate-900 group" data-aos="fade-up">
-                    <div class="absolute inset-0 opacity-40 group-hover:opacity-50 transition-opacity">
-                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Centro de estética">
-                    </div>
-                    <div class="relative z-10 mt-auto">
-                        <span class="bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Especialidad</span>
-                        <h3 class="text-3xl font-heading text-white mt-4 mb-2">Centro de estética integral</h3>
-                        <p class="text-slate-300 max-w-md">Tratamientos faciales y corporales de última generación para resultados visibles y duraderos.</p>
-                        <a href="https://wa.me/573122883315" class="inline-flex items-center gap-2 text-primary-400 font-bold mt-6 hover:text-primary-300">
-                            Consultar disponibilidad <i class="fa-solid fa-chevron-right text-xs"></i>
+                <!-- Main Bento Card -->
+                <div class="md:col-span-2 relative group overflow-hidden rounded-3xl bg-indigo-600 p-8 text-white min-h-[400px] flex flex-col justify-end" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Service" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition duration-700">
+                    <div class="relative z-10">
+                        <div class="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-md">
+                            <i class="fa-solid fa-spa text-3xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">Centro de Estética Integral</h3>
+                        <p class="text-indigo-50 max-w-md text-lg leading-relaxed mb-6">
+                            Ofrecemos una gama completa de tratamientos diseñados para revitalizar tu piel y cuerpo, utilizando las últimas tendencias en cosmetología clínica.
+                        </p>
+                        <a href="https://wa.me/573122883315" class="inline-flex items-center gap-2 font-bold hover:gap-4 transition-all">
+                            Ver catálogo de servicios <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="bento-card group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="mb-6">
-                        <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 text-2xl group-hover:bg-primary-600 group-hover:text-white transition-all duration-500">
-                            <i class="fa-solid fa-spa"></i>
-                        </div>
+                <!-- Bento Card 2 -->
+                <div class="bento-item rounded-3xl bg-slate-50 border border-slate-100 p-8 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-indigo-600/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-face-smile-beam text-2xl text-indigo-600"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-3">Cuidado Facial</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Limpiezas profundas, hidratación y peelings químicos para una piel radiante.</p>
-                    </div>
-                    <div class="mt-8">
-                        <div class="h-1 w-full bg-slate-100 rounded-full overflow-hidden">
-                            <div class="h-full bg-primary-600 w-1/3 transition-all duration-1000 group-hover:w-full"></div>
-                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-800">Tratamientos Faciales</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Limpieza profunda, hidratación y técnicas antiedad personalizadas según tu tipo de piel.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="bento-card group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="mb-6">
-                        <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 text-2xl group-hover:bg-primary-600 group-hover:text-white transition-all duration-500">
-                            <i class="fa-solid fa-wand-sparkles"></i>
-                        </div>
+                <!-- Bento Card 3 -->
+                <div class="bento-item rounded-3xl bg-slate-50 border border-slate-100 p-8 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-indigo-600/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-hand-sparkles text-2xl text-indigo-600"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-3">Diseño de Mirada</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Especialistas en cejas y pestañas que resaltan la expresión de tu rostro.</p>
-                    </div>
-                    <div class="mt-8">
-                        <div class="h-1 w-full bg-slate-100 rounded-full overflow-hidden">
-                            <div class="h-full bg-primary-600 w-1/4 transition-all duration-1000 group-hover:w-full"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="md:col-span-2 bento-card border-none bg-primary-600 text-white" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="md:w-1/2">
-                            <h3 class="text-2xl font-heading mb-4 italic">Tratamientos Personalizados</h3>
-                            <p class="text-primary-100 mb-6">Cada cliente es único. Evaluamos tus necesidades específicas para crear un plan de tratamiento que se ajuste a tus objetivos estéticos.</p>
-                            <a href="https://wa.me/573122883315" class="bg-white text-primary-600 px-6 py-3 rounded-full font-bold inline-flex items-center gap-2 hover:bg-primary-50 transition-colors">
-                                Agendar evaluación gratuita
-                            </a>
-                        </div>
-                        <div class="md:w-1/2">
-                            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80" class="rounded-2xl shadow-2xl rotate-2" alt="Equipo profesional">
-                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-800">Cuidados Corporales</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Moldeamiento, reducción y masajes relajantes para un bienestar físico completo.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- POR QUÉ ELEGIRNOS -->
-    <section id="beneficios" class="py-24 bg-slate-50 overflow-hidden">
+    <!-- POR QUÉ ELEGIRNOS (Split Screen) -->
+    <section id="nosotros" class="py-24 bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2" data-aos="fade-right">
-                    <h2 class="font-heading text-4xl md:text-5xl mb-8 leading-tight">La excelencia es nuestra <span class="text-primary-600 italic">prioridad</span></h2>
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="font-heading text-4xl md:text-5xl font-black mb-8">Por qué Magnolia Chaves es tu mejor opción</h2>
                     
                     <div class="space-y-6">
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-check-double"></i>
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm border border-indigo-100 flex items-center justify-center">
+                                <i class="fa-solid fa-check text-indigo-600 font-bold"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg mb-1 text-slate-900">Ubicación Estratégica</h4>
-                                <p class="text-slate-600">Fácil acceso en el Centro Comercial del Este, El Tesoro.</p>
+                                <h4 class="font-bold text-lg mb-1">Accesibilidad Total</h4>
+                                <p class="text-slate-600 text-sm">Contamos con entrada y sanitarios accesibles para personas en silla de ruedas.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-wheelchair"></i>
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm border border-indigo-100 flex items-center justify-center">
+                                <i class="fa-solid fa-credit-card text-indigo-600 font-bold"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg mb-1 text-slate-900">Accesibilidad Total</h4>
-                                <p class="text-slate-600">Contamos con entrada y estacionamiento accesible para personas en silla de ruedas.</p>
+                                <h4 class="font-bold text-lg mb-1">Múltiples Formas de Pago</h4>
+                                <p class="text-slate-600 text-sm">Aceptamos tarjetas de crédito, débito y pagos móviles mediante NFC.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-credit-card"></i>
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm border border-indigo-100 flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot text-indigo-600 font-bold"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg mb-1 text-slate-900">Múltiples Métodos de Pago</h4>
-                                <p class="text-slate-600">Aceptamos pagos móviles por NFC, tarjetas de crédito y débito.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-clock"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg mb-1 text-slate-900">Horario Extendido</h4>
-                                <p class="text-slate-600">Abierto de lunes a sábado de 7 AM a 7 PM, y domingos hasta las 5:30 PM.</p>
+                                <h4 class="font-bold text-lg mb-1">Ubicación Privilegiada</h4>
+                                <p class="text-slate-600 text-sm">Situados en el Centro Comercial del Este, El Tesoro, con amplio estacionamiento.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2 relative" data-aos="fade-left">
-                    <div class="absolute -top-10 -left-10 w-64 h-64 bg-primary-200/50 rounded-full blur-3xl -z-10"></div>
-                    <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-indigo-200/50 rounded-full blur-3xl -z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" 
-                         alt="Nuestros Beneficios" 
-                         class="rounded-[2.5rem] shadow-2xl w-full object-cover">
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="aspect-square rounded-[2rem] overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Team Magnolia Chaves" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-indigo-600 text-white p-8 rounded-3xl shadow-xl max-w-xs hidden md:block">
+                        <p class="font-heading text-2xl font-bold mb-2">+40</p>
+                        <p class="text-sm text-indigo-100">Clientes satisfechos que confían en nuestra manos expertas cada mes.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIOS -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="font-heading text-4xl mb-4">Lo que dicen nuestras clientas</h2>
-                <div class="flex justify-center text-yellow-400 mb-4">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+            <h2 class="font-heading text-4xl text-center font-black mb-16">Lo que dicen nuestros clientes</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-3xl bg-indigo-50/50 border border-indigo-100" data-aos="fade-up">
+                    <div class="flex text-amber-400 mb-4 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"El servicio en Magnolia Chaves es excepcional. Me hice un tratamiento facial y los resultados fueron visibles desde la primera sesión. Muy profesionales."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-200"></div>
+                        <div>
+                            <p class="font-bold text-sm">Carolina Méndez</p>
+                            <p class="text-xs text-slate-500 text-indigo-600">Cliente Frecuente</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonio 1 -->
-                <div class="bg-primary-50 p-8 rounded-3xl relative" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fa-solid fa-quote-left text-primary-200 text-5xl absolute top-6 left-6"></i>
-                    <div class="relative z-10">
-                        <p class="text-slate-700 italic mb-6 leading-relaxed">"La atención es increíble, los resultados en mi piel se notaron desde la primera sesión. Muy recomendado, excelente profesionalismo."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center text-primary-600 font-bold uppercase">VG</div>
-                            <div>
-                                <h5 class="font-bold">Valentina G.</h5>
-                                <span class="text-xs text-slate-500 uppercase tracking-widest">Clienta Fiel</span>
-                            </div>
+                <div class="p-8 rounded-3xl bg-indigo-50/50 border border-indigo-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-amber-400 mb-4 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Excelente ubicación en El Tesoro. El estudio es impecable y la atención es de primera. Lo recomiendo 100% para quienes buscan calidad en Medellín."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-200"></div>
+                        <div>
+                            <p class="font-bold text-sm">Juan Pablo Arango</p>
+                            <p class="text-xs text-slate-500 text-indigo-600">Cliente Verificado</p>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonio 2 -->
-                <div class="bg-primary-50 p-8 rounded-3xl relative" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-solid fa-quote-left text-primary-200 text-5xl absolute top-6 left-6"></i>
-                    <div class="relative z-10">
-                        <p class="text-slate-700 italic mb-6 leading-relaxed">"Ubicación perfecta en El Tesoro y un ambiente muy relajante. Los equipos son modernos y las instalaciones impecables. Volveré sin duda."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center text-primary-600 font-bold uppercase">MR</div>
-                            <div>
-                                <h5 class="font-bold">Mariana R.</h5>
-                                <span class="text-xs text-slate-500 uppercase tracking-widest">Clienta Fiel</span>
-                            </div>
-                        </div>
+
+                <div class="p-8 rounded-3xl bg-indigo-50/50 border border-indigo-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-amber-400 mb-4 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                     </div>
-                </div>
-                <!-- Testimonio 3 -->
-                <div class="bg-primary-50 p-8 rounded-3xl relative" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fa-solid fa-quote-left text-primary-200 text-5xl absolute top-6 left-6"></i>
-                    <div class="relative z-10">
-                        <p class="text-slate-700 italic mb-6 leading-relaxed">"Me encantó el diseño de cejas, muy natural. Buscan que te veas bien sin exagerar. Excelente trato por parte de Magnolia."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center text-primary-600 font-bold uppercase">CS</div>
-                            <div>
-                                <h5 class="font-bold">Camila S.</h5>
-                                <span class="text-xs text-slate-500 uppercase tracking-widest">Clienta Fiel</span>
-                            </div>
+                    <p class="text-slate-700 italic mb-6">"Me encanta la facilidad de pago y la amabilidad del personal. Magnolia siempre me asesora sobre qué es lo mejor para mi tipo de piel."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-200"></div>
+                        <div>
+                            <p class="font-bold text-sm">Valentina Rojas</p>
+                            <p class="text-xs text-slate-500 text-indigo-600">Cliente Satisfecha</p>
                         </div>
                     </div>
                 </div>
@@ -393,63 +334,53 @@
         </div>
     </section>
 
-    <!-- CONTACTO Y UBICACIÓN -->
-    <section id="ubicacion" class="py-24 bg-slate-900 text-white">
+    <!-- UBICACIÓN Y CONTACTO -->
+    <section id="contacto" class="py-24 bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="grid lg:grid-cols-2 gap-16">
                 <div data-aos="fade-right">
-                    <h2 class="font-heading text-4xl mb-8 leading-tight italic">Visítanos en Medellín</h2>
-                    <p class="text-slate-400 mb-10 leading-relaxed">Estamos ubicados en una de las zonas más exclusivas de la ciudad, listos para brindarte la mejor experiencia estética.</p>
-                    
+                    <h2 class="font-heading text-4xl font-black mb-8">Encuéntranos</h2>
                     <div class="space-y-6 mb-12">
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-primary-600/20 rounded-lg flex items-center justify-center text-primary-400">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
+                            <i class="fa-solid fa-location-dot text-indigo-400 text-xl mt-1"></i>
                             <div>
-                                <h6 class="font-bold mb-1">Dirección</h6>
-                                <p class="text-slate-400 text-sm">Local 9952, Centro Comercial del Este,<br>Cra. 25 #3-45, El Tesoro, Medellín.</p>
+                                <p class="font-bold text-lg">Dirección</p>
+                                <p class="text-slate-400">Local 9952, Centro Comercial del Este,<br>Cra. 25 #3-45, Medellín, Antioquia, Colombia</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-primary-600/20 rounded-lg flex items-center justify-center text-primary-400">
-                                <i class="fa-solid fa-clock"></i>
-                            </div>
+                            <i class="fa-solid fa-phone text-indigo-400 text-xl mt-1"></i>
                             <div>
-                                <h6 class="font-bold mb-1">Horarios</h6>
-                                <ul class="text-slate-400 text-sm grid grid-cols-2 gap-x-4">
-                                    <li><span class='font-medium text-white/70'>Lun - Sáb:</span> 7AM - 7PM</li>
-                                    <li><span class='font-medium text-white/70'>Domingo:</span> 8AM - 5:30PM</li>
+                                <p class="font-bold text-lg">Teléfono</p>
+                                <p class="text-slate-400">+57 312 2883315</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-clock text-indigo-400 text-xl mt-1"></i>
+                            <div>
+                                <p class="font-bold text-lg">Horarios de Atención</p>
+                                <ul class="text-slate-400 space-y-1 mt-2">
+                                    <li><span class='font-medium text-white'>Lun - Vie:</span> 7:00 AM - 7:00 PM</li>
+                                    <li><span class='font-medium text-white'>Sábado:</span> 7:00 AM - 7:00 PM</li>
+                                    <li><span class='font-medium text-white'>Domingo:</span> 8:00 AM - 5:30 PM</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-primary-600/20 rounded-lg flex items-center justify-center text-primary-400">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <h6 class="font-bold mb-1">Teléfono & WhatsApp</h6>
-                                <p class="text-slate-400 text-sm">+57 312 2883315</p>
-                            </div>
-                        </div>
                     </div>
-
                     <div class="flex flex-wrap gap-4">
-                        <a href="https://wa.me/573122883315" class="bg-primary-600 hover:bg-primary-700 px-8 py-3 rounded-full font-bold transition-all">
-                            Agendar por WhatsApp
+                        <a href="https://wa.me/573122883315" class="bg-indigo-600 px-8 py-4 rounded-xl font-bold hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/10">
+                            Agendar Cita
                         </a>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Magnolia%20chaves%20beauty%20studio" target="_blank" class="border border-white/20 hover:bg-white/5 px-8 py-3 rounded-full font-bold transition-all">
-                            Cómo llegar
+                        <a href="https://www.google.com/maps/search/?api=1&query=Magnolia%20chaves%20beauty%20studio" target="_blank" class="bg-white/10 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition border border-white/20">
+                            ¿Cómo llegar?
                         </a>
                     </div>
                 </div>
 
                 <div data-aos="fade-left">
-                    <div class="relative w-full h-[450px] rounded-3xl shadow-2xl overflow-hidden bg-slate-800 border-4 border-slate-800">
-                        <iframe src="https://www.google.com/maps?q=6.1985755,-75.55679&hl=es&z=14&output=embed" class="absolute inset-0 w-full h-full border-0 grayscale opacity-80" allowfullscreen loading="lazy"></iframe>
-                        <noscript>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Magnolia%20chaves%20beauty%20studio" target="_blank" class="flex items-center justify-center h-full text-primary-400">Ver en Google Maps</a>
-                        </noscript>
+                    <div class="relative w-full h-[500px] rounded-[2.5rem] shadow-2xl overflow-hidden bg-slate-800 border-4 border-slate-800">
+                        <iframe src="https://www.google.com/maps?q=6.1985755,-75.55679&hl=es&z=14&output=embed" class="absolute inset-0 w-full h-full border-0 grayscale invert contrast-125 opacity-80" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-[2.5rem]"></div>
                     </div>
                 </div>
             </div>
@@ -461,34 +392,40 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div>
-                    <span class="font-heading text-xl font-bold text-primary-600">Magnolia chaves beauty studio</span>
-                    <p class="text-slate-500 text-sm mt-2">© 2025 Magnolia chaves beauty studio. Medellín, CO.</p>
+                    <span class="font-heading text-xl font-black tracking-tighter text-indigo-600">
+                        MAGNOLIA <span class="text-slate-800">CHAVES</span>
+                    </span>
+                    <p class="text-slate-500 text-sm mt-2">© 2025 Magnolia Chaves Beauty Studio. <br class="md:hidden"> Todos los derechos reservados.</p>
                 </div>
-                <div class="flex items-center gap-6">
-                    <span class="text-xs text-slate-400 uppercase tracking-widest font-bold">Aceptamos:</span>
-                    <div class="flex gap-4 text-2xl text-slate-300">
-                        <i class="fa-brands fa-cc-visa"></i>
-                        <i class="fa-brands fa-cc-mastercard"></i>
-                        <i class="fa-brands fa-cc-apple-pay"></i>
-                    </div>
-                </div>
-                <div class="text-sm text-slate-500">
-                    Todos los derechos reservados.
+                
+                <div class="flex gap-8">
+                    <a href="#inicio" class="text-sm font-medium text-slate-500 hover:text-indigo-600 transition">Inicio</a>
+                    <a href="#servicios" class="text-sm font-medium text-slate-500 hover:text-indigo-600 transition">Servicios</a>
+                    <a href="#nosotros" class="text-sm font-medium text-slate-500 hover:text-indigo-600 transition">Nosotros</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/573122883315" 
-       target="_blank" 
-       class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl animate-pulse-slow hover:scale-110 transition-transform">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span class="absolute -top-2 -left-2 flex h-5 w-5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-5 w-5 bg-red-500 text-[10px] items-center justify-center font-bold">1</span>
-        </span>
+    <!-- FLOAT WHATSAPP -->
+    <a href="https://wa.me/573122883315" target="_blank" class="fixed bottom-6 right-6 z-[60] bg-whatsapp text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition active:scale-95 animate-bounce-slow" style="animation: pulse-green 2s infinite;">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
     </a>
+
+    <style>
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+        }
+    </style>
 
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -506,7 +443,7 @@
 <script
   src="https://hookloop-api.onrender.com/static/widget.js"
   data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
-  data-artifact-id="f91ae781-d2c7-40cb-8a0d-7132c78bffd6"
+  data-artifact-id="572c9c10-133d-4049-801d-f924f2f0a837"
   data-lead-id="b43811c4-5afb-46cf-b466-acf8c767fd72"
   async>
 </script>
