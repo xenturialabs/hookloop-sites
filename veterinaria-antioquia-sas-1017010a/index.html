@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria Antioquia SAS | Cuidado Profesional en Medellín</title>
+    <meta name="description" content="Veterinaria Antioquia SAS en Guayabal, Medellín. Expertos en salud animal, cirugías, vacunación y bienestar para tu mascota.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b', // amber-500
+                            600: '#d97706', // amber-600
+                        },
+                        whatsapp: '#25D366',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 30s linear infinite',
+                        'pulse-soft': 'pulse-soft 2s infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        'pulse-soft': {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.05)', opacity: '0.9' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bento-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-5px);
+        }
+        .marquee-container {
+            overflow: hidden;
+            user-select: none;
+            display: flex;
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-heading text-2xl font-black text-primary-600 tracking-tighter">
+                        VETERINARIA <span class="text-slate-800">ANTIOQUIA</span>
+                    </span>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-slate-600 hover:text-primary-600 font-medium transition">Inicio</a>
+                    <a href="#servicios" class="text-slate-600 hover:text-primary-600 font-medium transition">Servicios</a>
+                    <a href="#nosotros" class="text-slate-600 hover:text-primary-600 font-medium transition">Nosotros</a>
+                    <a href="#contacto" class="text-slate-600 hover:text-primary-600 font-medium transition">Contacto</a>
+                    <a href="https://wa.me/573103851577" target="_blank" class="bg-whatsapp text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-lg shadow-green-200">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 p-2">
+                        <i class="fa-solid fa-bars-staggered text-2xl" x-show="!mobileMenu"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden bg-white border-b border-slate-100 p-4 space-y-4">
+            <a href="#inicio" @click="mobileMenu = false" class="block text-slate-600 font-medium">Inicio</a>
+            <a href="#servicios" @click="mobileMenu = false" class="block text-slate-600 font-medium">Servicios</a>
+            <a href="#nosotros" @click="mobileMenu = false" class="block text-slate-600 font-medium">Nosotros</a>
+            <a href="#contacto" @click="mobileMenu = false" class="block text-slate-600 font-medium">Contacto</a>
+            <a href="https://wa.me/573103851577" class="w-full bg-whatsapp text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1600&q=80" 
+                 class="w-full h-full object-cover" alt="Veterinaria Medellín">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-white">
+            <div class="max-w-3xl" data-aos="fade-right">
+                <span class="inline-block px-4 py-1.5 bg-primary-500 text-white rounded-full text-sm font-bold tracking-wider uppercase mb-6">
+                    Salud Animal de Confianza
+                </span>
+                <h1 class="font-heading text-5xl md:text-7xl font-black mb-8 leading-[1.1]">
+                    Cuidamos a los que más <span class="text-primary-500">amas</span> con pasión.
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl">
+                    En Veterinaria Antioquia SAS, combinamos tecnología avanzada y un trato humano excepcional para garantizar el bienestar de tu mascota en Medellín.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/573103851577" class="bg-primary-500 hover:bg-primary-600 text-white text-center px-8 py-5 rounded-2xl font-black text-lg transition shadow-2xl shadow-primary-500/20 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        AGENDAR CITA
+                    </a>
+                    <a href="tel:+573103851577" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-center px-8 py-5 rounded-2xl font-bold text-lg transition border border-white/20 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone"></i>
+                        LLAMAR AHORA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE TICKER -->
+    <div class="bg-slate-100 py-6 border-y border-slate-200 overflow-hidden relative">
+        <div class="flex marquee-container animate-marquee">
+            <div class="flex gap-16 items-center flex-shrink-0">
+                <span class="text-slate-300 font-black text-6xl uppercase tracking-tighter">VETERINARIA</span>
+                <span class="text-primary-500 font-black text-6xl uppercase tracking-tighter">URGENCIAS</span>
+                <span class="text-slate-300 font-black text-6xl uppercase tracking-tighter">CIRUGÍA</span>
+                <span class="text-slate-300 font-black text-6xl uppercase tracking-tighter">MEDELLÍN</span>
+                <span class="text-primary-500 font-black text-6xl uppercase tracking-tighter">BIENESTAR</span>
+            </div>
+            <div class="flex gap-16 items-center flex-shrink-0">
+                <span class="text-slate-300 font-black text-6xl uppercase tracking-tighter">VETERINARIA</span>
+                <span class="text-primary-500 font-black text-6xl uppercase tracking-tighter">URGENCIAS</span>
+                <span class="text-slate-300 font-black text-6xl uppercase tracking-tighter">CIRUGÍA</span>
+                <span class="text-slate-300 font-black text-6xl uppercase tracking-tighter">MEDELLÍN</span>
+                <span class="text-primary-500 font-black text-6xl uppercase tracking-tighter">BIENESTAR</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRUST STRIP -->
+    <div class="bg-white py-8 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12">
+            <div class="flex items-center gap-3">
+                <div class="flex text-amber-400 text-xl">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <span class="font-bold text-slate-700 text-lg">4.3 / 5</span>
+            </div>
+            <div class="h-4 w-px bg-slate-300 hidden md:block"></div>
+            <div class="flex items-center gap-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Reference_icon.svg" class="w-6" alt="Google">
+                <span class="text-slate-600 font-medium">93 opiniones en Google Maps</span>
+            </div>
+            <div class="h-4 w-px bg-slate-300 hidden md:block"></div>
+            <div class="text-primary-600 font-bold tracking-tight italic">
+                "Excelencia comprobada en Medellín"
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES (BENTO BOX) -->
+    <section id="servicios" class="py-24 bg-primary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-black text-slate-900 mb-4">Nuestros Servicios</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Ofrecemos una gama integral de servicios médicos especializados para asegurar la vitalidad de tus compañeros peludos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Service 1 (Double Span) -->
+                <div class="md:col-span-2 bg-white p-10 rounded-[2rem] shadow-xl shadow-slate-200/50 bento-card border border-slate-100 flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-primary-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-stethoscopes text-4xl text-primary-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold mb-3 text-slate-900">Consulta Médica Especializada</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Diagnósticos precisos realizados por médicos veterinarios con años de experiencia en medicina interna y preventiva.</p>
+                        <ul class="grid grid-cols-2 gap-2 text-sm font-semibold text-slate-500">
+                            <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Chequeo general</li>
+                            <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Especialistas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-primary-600 p-10 rounded-[2rem] shadow-xl shadow-primary-600/20 bento-card text-white" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-syringe text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Vacunación</h3>
+                    <p class="text-primary-100">Esquemas completos de vacunación y desparasitación para protegerlos de enfermedades comunes.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-10 rounded-[2rem] shadow-xl shadow-slate-200/50 bento-card border border-slate-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-scissors text-3xl text-primary-600"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Peluquería Canina</h3>
+                    <p class="text-slate-600">Servicio de estética profesional, baño y corte según la raza, cuidando siempre su piel y pelaje.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-10 rounded-[2rem] shadow-xl shadow-slate-200/50 bento-card border border-slate-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-microscope text-3xl text-primary-600"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Laboratorio</h3>
+                    <p class="text-slate-600">Análisis clínicos rápidos y confiables para diagnósticos en tiempo récord.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-10 rounded-[2rem] shadow-xl shadow-slate-200/50 bento-card border border-slate-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-kit-medical text-3xl text-primary-600"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Cirugías</h3>
+                    <p class="text-slate-600">Quirófano equipado para procedimientos de tejidos blandos y ortopedia con anestesia segura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="nosotros" class="py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="font-heading text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">¿Por qué confiar en Veterinaria Antioquia?</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white shadow-lg">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Trato Humanizado</h4>
+                                <p class="text-slate-600">No son solo pacientes, son parte de nuestra familia. Los tratamos con el amor que merecen.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white shadow-lg">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Profesionales Expertos</h4>
+                                <p class="text-slate-600">Nuestro equipo médico se mantiene en constante formación para ofrecer lo último en medicina animal.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white shadow-lg">
+                                <i class="fa-solid fa-hospital"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Instalaciones Modernas</h4>
+                                <p class="text-slate-600">Contamos con equipos de última generación para diagnósticos y cirugías de alta precisión.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                    <div class="absolute -inset-4 bg-primary-500/10 rounded-[3rem] -rotate-3"></div>
+                    <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=800&q=80" 
+                         class="relative rounded-[3rem] shadow-2xl w-full h-[600px] object-cover" 
+                         alt="Cuidado Veterinario">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-black mb-4">Lo que dicen nuestros clientes</h2>
+                <div class="w-24 h-1.5 bg-primary-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-up">
+                    <div class="flex text-amber-400 mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 italic mb-8">"Excelente atención. Llevé a mi perrito por una urgencia y lo trataron con mucho profesionalismo. Se nota que aman a los animales."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center font-bold text-white">CP</div>
+                        <div>
+                            <h5 class="font-bold">Carlos Pineda</h5>
+                            <p class="text-xs text-slate-400">Cliente Local</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-amber-400 mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 italic mb-8">"La mejor veterinaria de Guayabal. Los precios son justos y la calidad del servicio en peluquería es impecable. ¡Recomendados!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center font-bold text-white">MA</div>
+                        <div>
+                            <h5 class="font-bold">Marta Arango</h5>
+                            <p class="text-xs text-slate-400">Cliente Frecuente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-amber-400 mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 italic mb-8">"Siempre traigo a mis gatos aquí para sus vacunas. Son muy pacientes y cuidadosos. Un lugar de total confianza."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center font-bold text-white">LR</div>
+                        <div>
+                            <h5 class="font-bold">Luisa Restrepo</h5>
+                            <p class="text-xs text-slate-400">Rescatista</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="contacto" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div data-aos="fade-right">
+                    <h2 class="font-heading text-4xl font-black text-slate-900 mb-8">Ven a Visitarnos</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-location-dot text-primary-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Dirección</h4>
+                                <p class="text-slate-600">Cl. 23 #65b-32, Guayabal, Medellín, Antioquia, Colombia</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-clock text-primary-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Horarios de Atención</h4>
+                                <ul class="text-slate-600 space-y-1">
+                                    <li><span class="font-medium">Lunes - Viernes:</span> 9:00 AM - 6:00 PM</li>
+                                    <li><span class="font-medium">Sábado:</span> 9:00 AM - 2:00 PM</li>
+                                    <li class="text-primary-600 font-bold italic">Domingos y festivos: Consultar disponibilidad</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-phone-volume text-primary-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Contacto Directo</h4>
+                                <p class="text-slate-600">+57 310 3851577</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-8">
+                            <a href="https://wa.me/573103851577" class="inline-flex items-center gap-3 bg-whatsapp text-white px-10 py-5 rounded-2xl font-black text-xl hover:scale-105 transition shadow-xl shadow-green-200">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                CHATEAR AHORA
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" class="relative">
+                    <div class="relative w-full h-96 md:h-[500px] rounded-[2.5rem] shadow-2xl overflow-hidden bg-slate-100 border-8 border-white">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.216!2d-75.584!3d6.223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428ce01799e4b%3A0x2d4da3567505eb2c!2sVeterinaria%20Antioquia%20SAS!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" 
+                            class="absolute inset-0 w-full h-full border-0" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12 border-b border-white/10 pb-12">
+                <div>
+                    <span class="font-heading text-2xl font-black text-white tracking-tighter">
+                        VETERINARIA <span class="text-primary-500">ANTIOQUIA</span>
+                    </span>
+                    <p class="mt-2 text-sm max-w-xs">Comprometidos con la salud y bienestar de tus mascotas en el corazón de Medellín.</p>
+                </div>
+                <div class="flex gap-8">
+                    <a href="#inicio" class="hover:text-white transition">Inicio</a>
+                    <a href="#servicios" class="hover:text-white transition">Servicios</a>
+                    <a href="#nosotros" class="hover:text-white transition">Nosotros</a>
+                    <a href="#contacto" class="hover:text-white transition">Contacto</a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm gap-4">
+                <p>&copy; 2025 Veterinaria Antioquia SAS. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Atendiendo en Medellín, CO
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/573103851577" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-[60] bg-whatsapp text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition animate-pulse-soft">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth Scroll handling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="82562eb2-f2c1-48ea-b989-dfa672ceecd4"
+  data-lead-id="2895c505-e11e-4e3d-b8c2-8f5f6cacfa46"
+  async>
+</script>
+</body>
+</html>
