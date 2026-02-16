@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bliss Nails Spa | Expertas en Uñas en Medellín Laureles</title>
+    <meta name="description" content="Manicura, pedicura y uñas acrílicas de alta calidad en Medellín. Visítanos en Laureles para una experiencia de belleza única.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d946ef', // fuchsia-500
+                        secondary: '#fdf4ff', // fuchsia-50
+                        accent: '#e879f9', // fuchsia-400
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .marquee-container {
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+        }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl font-heading font-black text-primary tracking-tighter">Bliss Nails Spa</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="font-medium hover:text-primary transition-colors">Inicio</a>
+                    <a href="#servicios" class="font-medium hover:text-primary transition-colors">Servicios</a>
+                    <a href="#nosotros" class="font-medium hover:text-primary transition-colors">Por qué Elegirnos</a>
+                    <a href="#contacto" class="font-medium hover:text-primary transition-colors">Ubicación</a>
+                    <a href="https://wa.me/573106066398" target="_blank" class="bg-[#25D366] text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 p-2">
+                        <i class="fa-solid" :class="mobileMenu ? 'fa-xmark' : 'fa-bars-staggered'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak class="md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-xl">
+            <a href="#inicio" @click="mobileMenu = false" class="block px-3 py-4 text-base font-semibold border-b border-slate-50">Inicio</a>
+            <a href="#servicios" @click="mobileMenu = false" class="block px-3 py-4 text-base font-semibold border-b border-slate-50">Servicios</a>
+            <a href="#nosotros" @click="mobileMenu = false" class="block px-3 py-4 text-base font-semibold border-b border-slate-50">Por qué Elegirnos</a>
+            <a href="#contacto" @click="mobileMenu = false" class="block px-3 py-4 text-base font-semibold">Ubicación</a>
+            <a href="https://wa.me/573106066398" class="w-full bg-[#25D366] text-white p-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1600&q=80" alt="Bliss Nails Spa Hero" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center sm:text-left w-full">
+            <div class="max-w-3xl" data-aos="fade-right">
+                <span class="inline-block px-4 py-1 bg-primary/20 text-accent rounded-full text-sm font-bold uppercase tracking-widest mb-6 backdrop-blur-sm border border-primary/30">
+                    El mejor Spa de Uñas en Medellín
+                </span>
+                <h1 class="text-5xl md:text-7xl font-heading font-black text-white leading-tight mb-6">
+                    Luce unas manos <span class="text-primary italic">impecables</span> y llenas de estilo.
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 leading-relaxed font-light">
+                    En Bliss Nails Spa transformamos tus uñas en obras de arte. Disfruta de una experiencia de lujo y cuidado personal en el corazón de Laureles.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/573106066398" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-primary/30 transition-all text-center">
+                        Solicitar Cotización
+                    </a>
+                    <a href="tel:+573106066398" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-2xl font-bold text-lg transition-all text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i> Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE TICKER -->
+    <div class="bg-primary py-6 overflow-hidden border-y border-white/10 relative z-20">
+        <div class="marquee-container animate-marquee">
+            <div class="flex items-center space-x-12 px-6">
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">MANICURE</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">PEDICURE</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">ACRÍLICAS</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">SEMIPERMANENTE</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">NAIL ART</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+            </div>
+            <div class="flex items-center space-x-12 px-6">
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">MANICURE</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">PEDICURE</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">ACRÍLICAS</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">SEMIPERMANENTE</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">NAIL ART</span>
+                <span class="text-slate-100 font-black text-6xl uppercase tracking-widest opacity-40">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRUST STRIP -->
+    <div class="bg-secondary py-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8">
+            <div class="flex items-center gap-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-10 h-10">
+                <div>
+                    <div class="flex text-yellow-400">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-slate-500 text-sm font-semibold">4.2 Estrellas en Google Maps</p>
+                </div>
+            </div>
+            <div class="h-8 w-px bg-slate-300 hidden md:block"></div>
+            <div class="text-center">
+                <p class="text-2xl font-black text-slate-800 uppercase tracking-tighter">58 OPINIONES POSITIVAS</p>
+                <p class="text-primary font-bold">Excelencia comprobada en Medellín</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICIOS BENTO BOX -->
+    <section id="servicios" class="py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-heading font-black mb-4">Nuestros Servicios Premium</h2>
+                <div class="w-24 h-1.5 bg-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bento Item 1 (Wide) -->
+                <div data-aos="fade-up" class="md:col-span-2 group relative overflow-hidden rounded-3xl bg-slate-100 p-8 min-h-[300px] flex flex-col justify-end">
+                    <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-20" alt="Manicura Spa">
+                    </div>
+                    <div class="relative z-10">
+                        <i class="fa-solid fa-hand-sparkles text-4xl text-primary mb-4"></i>
+                        <h3 class="text-3xl font-heading font-bold mb-2">Manicura & Pedicura Completa</h3>
+                        <p class="text-slate-600 max-w-md">Nuestro servicio estrella. Limpieza profunda, exfoliación, hidratación y esmaltado de alta gama para que tus manos y pies luzcan perfectos.</p>
+                    </div>
+                </div>
+
+                <!-- Bento Item 2 -->
+                <div data-aos="fade-up" class="group bg-secondary p-8 rounded-3xl border border-primary/10 hover:border-primary/30 transition-all shadow-sm">
+                    <i class="fa-solid fa-gem text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Uñas Acrílicas</h3>
+                    <p class="text-slate-600 text-sm">Esculpido profesional con acabado natural. Máxima resistencia y el largo que siempre deseaste.</p>
+                </div>
+
+                <!-- Bento Item 3 -->
+                <div data-aos="fade-up" class="group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all">
+                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Diseño Nail Art</h3>
+                    <p class="text-slate-600 text-sm">Desde minimalismo elegante hasta diseños 3D. Expresamos tu personalidad en cada uña.</p>
+                </div>
+
+                <!-- Bento Item 4 -->
+                <div data-aos="fade-up" class="group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all">
+                    <i class="fa-solid fa-clock-rotate-left text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Semipermanente</h3>
+                    <p class="text-slate-600 text-sm">Brillo intenso y color intacto hasta por 21 días. Ideal para el ritmo de vida moderno.</p>
+                </div>
+
+                <!-- Bento Item 5 -->
+                <div data-aos="fade-up" class="group bg-secondary p-8 rounded-3xl border border-primary/10 hover:border-primary/30 transition-all shadow-sm">
+                    <i class="fa-solid fa-bottle-droplet text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Spa de Hidratación</h3>
+                    <p class="text-slate-600 text-sm">Tratamientos intensivos con aceites esenciales para recuperar la suavidad de tu piel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUÉ ELEGIRNOS -->
+    <section id="nosotros" class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl md:text-5xl font-heading font-black mb-8 leading-tight">
+                        La excelencia es nuestro <span class="text-primary italic">estándar.</span>
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center border border-primary/30 text-primary">
+                                <i class="fa-solid fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Expertas Certificadas</h4>
+                                <p class="text-slate-400">Nuestras manicuristas están en constante capacitación con las últimas técnicas mundiales.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center border border-primary/30 text-primary">
+                                <i class="fa-solid fa-shield-virus text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Higiene Estricta</h4>
+                                <p class="text-slate-400">Cumplimos con los protocolos de bioseguridad más rigurosos. Herramientas esterilizadas siempre.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center border border-primary/30 text-primary">
+                                <i class="fa-solid fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Atención Personalizada</h4>
+                                <p class="text-slate-400">No somos una cadena. Aquí te escuchamos y te dedicamos el tiempo que te mereces.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <a href="https://wa.me/573106066398" class="inline-block bg-primary hover:bg-accent text-white px-10 py-4 rounded-2xl font-black text-lg transition-all transform hover:-translate-y-1">
+                            Agenda tu Cita Hoy
+                        </a>
+                    </div>
+                </div>
+                <div class="relative" data-aos="fade-left">
+                    <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"></div>
+                    <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=800&q=80" alt="Nosotros" class="relative rounded-[2rem] shadow-2xl border border-white/10 object-cover w-full aspect-square md:aspect-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-heading font-black mb-4 italic text-primary">Lo que dicen nuestras clientas</h2>
+                <p class="text-slate-500">Experiencias reales en Bliss Nails Spa</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-secondary p-8 rounded-3xl shadow-sm border border-primary/5">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-slate-700 mb-6">"El mejor spa de uñas en Laureles. Me hice unas acrílicas y me quedaron súper naturales. La atención es de 10 estrellas."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">CP</div>
+                        <div>
+                            <p class="font-bold">Catalina Peláez</p>
+                            <p class="text-xs text-slate-400 italic">Cliente frecuente</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-secondary p-8 rounded-3xl shadow-sm border border-primary/5">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-slate-700 mb-6">"Me encanta que usan productos de excelente calidad. El semipermanente me dura muchísimo sin perder el brillo."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">MR</div>
+                        <div>
+                            <p class="font-bold">Mariana Restrepo</p>
+                            <p class="text-xs text-slate-400 italic">Cliente local</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-secondary p-8 rounded-3xl shadow-sm border border-primary/5">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-slate-700 mb-6">"Excelente lugar, súper limpio y las niñas son unas artistas con los diseños. Siempre salgo feliz de aquí."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">VG</div>
+                        <div>
+                            <p class="font-bold">Valeria Gómez</p>
+                            <p class="text-xs text-slate-400 italic">Cliente local</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO & UBICACION -->
+    <section id="contacto" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200 overflow-hidden">
+                <div class="p-10 md:p-16">
+                    <h2 class="text-4xl font-heading font-black mb-8">¿Dónde estamos?</h2>
+                    
+                    <div class="space-y-8 mb-10">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot text-primary text-2xl mt-1"></i>
+                            <div>
+                                <p class="font-bold text-lg leading-tight">Cl. 32F #81-08, Laureles - Estadio</p>
+                                <p class="text-slate-500">Medellín, Antioquia, Colombia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-phone text-primary text-xl mt-1"></i>
+                            <div>
+                                <p class="font-bold text-lg">+57 310 6066398</p>
+                                <p class="text-slate-500 text-sm">Llámanos para agendar</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-clock text-primary text-xl mt-1"></i>
+                            <div class="w-full">
+                                <p class="font-bold text-lg mb-2">Horarios de Atención</p>
+                                <ul class="space-y-1 text-slate-600">
+                                    <li class="flex justify-between border-b border-slate-100 pb-1">
+                                        <span>Lunes - Viernes</span>
+                                        <span class="font-medium">9:00 AM - 6:00 PM</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Sábado</span>
+                                        <span class="font-medium">9:00 AM - 2:00 PM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bliss%20Nails%20Spa&query_place_id=ChIJc9soSMopRI4R2iQhZQLBMqQ" target="_blank" class="w-full bg-slate-900 text-white p-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
+                            <i class="fa-solid fa-route"></i> Cómo llegar (Google Maps)
+                        </a>
+                        <a href="https://wa.me/573106066398" class="w-full bg-primary text-white p-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-accent transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i> Hablar con una experta
+                        </a>
+                    </div>
+                </div>
+
+                <div class="h-[400px] md:h-auto min-h-[500px]">
+                    <iframe src="https://www.google.com/maps?q=Bliss+Nails+Spa+Cl.+32F+%2381-08%2C+Laureles+-+Estadio%2C+Medell%C3%ADn%2C+Laureles%2C+Medell%C3%ADn%2C+Antioquia%2C+Colombia&hl=es&z=14&output=embed" class="w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12 border-b border-white/10 pb-12">
+                <div>
+                    <span class="text-3xl font-heading font-black text-primary mb-6 block tracking-tighter">Bliss Nails Spa</span>
+                    <p class="text-slate-400">Tu refugio de belleza en Medellín. Especialistas en el cuidado y diseño de tus manos y pies con los más altos estándares de calidad.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#inicio" class="text-slate-400 hover:text-primary transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="text-slate-400 hover:text-primary transition-colors">Nuestros Servicios</a></li>
+                        <li><a href="#contacto" class="text-slate-400 hover:text-primary transition-colors">Ubicación</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl mb-6">Contacto Directo</h4>
+                    <p class="text-slate-400 mb-2 italic">¿Dudas o citas rápidas?</p>
+                    <a href="tel:+573106066398" class="text-2xl font-bold text-primary hover:text-accent transition-colors block mb-4">+57 310 6066398</a>
+                    <p class="text-slate-400">Cl. 32F #81-08, Medellín</p>
+                </div>
+            </div>
+            <div class="text-center text-slate-500 text-sm">
+                <p>&copy; 2025 Bliss Nails Spa. Todos los derechos reservados. Medellín, Colombia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/573106066398" target="_blank" class="fixed bottom-6 right-6 z-[60] group flex items-center justify-center">
+        <span class="absolute right-full mr-3 bg-white text-slate-800 px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block border border-slate-100">
+            ¡Reserva por WhatsApp!
+        </span>
+        <div class="bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl animate-bounce hover:scale-110 transition-transform">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </div>
+        <div class="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-25"></div>
+    </a>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="7ac6b47a-8c42-44f8-9d1e-3c75ab1baccf"
+  data-lead-id="ab5cfb6e-c5e1-426f-b786-f878913ce37f"
+  async>
+</script>
+</body>
+</html>
