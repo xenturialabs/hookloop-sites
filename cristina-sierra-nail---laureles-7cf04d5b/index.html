@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristina Sierra Nail - Laureles | Expertas en Manicura y Pedicura</title>
+    <meta name="description" content="Especialistas en uñas en Medellín, Laureles. Manicura, pedicura, acrílico y diseño de uñas con la mejor calidad y atención.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d946ef',   /* fuchsia-500 */
+                        accent: '#e879f9',    /* fuchsia-400 */
+                        secondary: '#fdf4ff', /* fuchsia-50 */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 30s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(217, 70, 239, 0.1);
+        }
+        .bento-item {
+            @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+        }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-white" x-data="{ mobileMenu: false }">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-heading text-2xl font-bold text-primary italic">Cristina Sierra</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-slate-600 hover:text-primary font-medium transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-slate-600 hover:text-primary font-medium transition-colors">Servicios</a>
+                    <a href="#nosotros" class="text-slate-600 hover:text-primary font-medium transition-colors">Por qué Elegirnos</a>
+                    <a href="#contacto" class="text-slate-600 hover:text-primary font-medium transition-colors">Contacto</a>
+                    <a href="https://wa.me/576044238452" target="_blank" class="bg-[#25D366] text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-[#20ba5a] transition-all shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 p-2">
+                        <i class="fa-solid" :class="mobileMenu ? 'fa-xmark' : 'fa-bars-staggered'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-transition x-cloak class="md:hidden bg-white border-t border-fuchsia-100 p-4 space-y-4 shadow-xl">
+            <a href="#inicio" @click="mobileMenu = false" class="block text-slate-600 font-medium">Inicio</a>
+            <a href="#servicios" @click="mobileMenu = false" class="block text-slate-600 font-medium">Servicios</a>
+            <a href="#nosotros" @click="mobileMenu = false" class="block text-slate-600 font-medium">Por qué Elegirnos</a>
+            <a href="#contacto" @click="mobileMenu = false" class="block text-slate-600 font-medium">Contacto</a>
+            <a href="https://wa.me/576044238452" target="_blank" class="w-full bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background with overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1600&q=80" alt="Nail Art Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-slate-900/60 backdrop-brightness-75"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+            <div class="max-w-2xl text-white" data-aos="fade-right">
+                <span class="inline-block px-4 py-1 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full text-primary font-semibold mb-6 tracking-wide">EL ARTE EN TUS MANOS</span>
+                <h1 class="font-heading text-5xl md:text-7xl font-bold leading-tight mb-6">Resalta tu brillo natural con estilo.</h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed">En <span class="text-primary font-bold">Cristina Sierra Nail</span>, transformamos el cuidado de tus uñas en una experiencia de lujo y bienestar en el corazón de Laureles.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/576044238452" class="px-8 py-4 bg-primary hover:bg-accent text-white rounded-2xl font-bold text-center transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2">
+                        Solicitar Cotización <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:+576044238452" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-2xl font-bold text-center transition-all">
+                        Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE TICKER -->
+    <div class="relative bg-slate-900 overflow-hidden py-6 border-y border-primary/20">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <span class="text-slate-100/10 font-black text-6xl uppercase tracking-widest mx-4">Manicura • Pedicura • Acrílico • Semipermanente • Nail Art • Bienestar •</span>
+            <span class="text-slate-100/10 font-black text-6xl uppercase tracking-widest mx-4">Manicura • Pedicura • Acrílico • Semipermanente • Nail Art • Bienestar •</span>
+        </div>
+    </div>
+
+    <!-- REPUTATION STRIP -->
+    <section class="bg-secondary py-8 border-b border-fuchsia-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12">
+            <div class="flex items-center gap-2">
+                <div class="flex text-amber-400 text-xl">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <span class="font-bold text-slate-800 text-lg">4.2/5</span>
+            </div>
+            <div class="h-6 w-px bg-slate-300 hidden md:block"></div>
+            <p class="text-slate-600 font-medium text-center">
+                <span class="text-primary font-bold">387 opiniones</span> de clientes satisfechos
+            </p>
+            <div class="h-6 w-px bg-slate-300 hidden md:block"></div>
+            <div class="flex items-center gap-2">
+                <i class="fa-brands fa-google text-2xl text-slate-400"></i>
+                <span class="text-slate-700 font-semibold italic">Excelencia comprobada en Google Maps</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS (Bento Grid) -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-slate-900 mb-4">Nuestros Servicios</h2>
+                <div class="w-24 h-1.5 bg-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bento Item 1 (Double) -->
+                <div class="md:col-span-2 group relative overflow-hidden rounded-3xl bg-secondary p-8 bento-item border border-fuchsia-100" data-aos="fade-up">
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-3xl mb-6">
+                                <i class="fa-solid fa-hands-bubbles"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Manicura Premium & Spa</h3>
+                            <p class="text-slate-600 text-lg leading-relaxed max-w-md">Una experiencia completa de hidratación, exfoliación y diseño para que tus manos luzcan impecables y saludables.</p>
+                        </div>
+                        <div class="mt-8">
+                            <ul class="flex flex-wrap gap-4 text-sm font-semibold text-primary">
+                                <li class="bg-white px-4 py-2 rounded-lg border border-fuchsia-100 shadow-sm italic">#Relajación</li>
+                                <li class="bg-white px-4 py-2 rounded-lg border border-fuchsia-100 shadow-sm italic">#Hidratación</li>
+                                <li class="bg-white px-4 py-2 rounded-lg border border-fuchsia-100 shadow-sm italic">#Spa</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-gem absolute -right-4 -bottom-4 text-9xl text-primary/5 group-hover:rotate-12 transition-transform duration-500"></i>
+                </div>
+
+                <!-- Bento Item 2 -->
+                <div class="bg-slate-900 rounded-3xl p-8 bento-item text-white flex flex-col justify-between border border-slate-800" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-accent text-3xl mb-6">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Pedicura Profunda</h3>
+                        <p class="text-slate-400">Cuidado especializado para tus pies, eliminando asperezas y brindando confort total.</p>
+                    </div>
+                </div>
+
+                <!-- Bento Item 3 -->
+                <div class="bg-white rounded-3xl p-8 bento-item border border-fuchsia-100 flex flex-col justify-between shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg shadow-primary/20">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Uñas Acrílicas</h3>
+                        <p class="text-slate-600">Extensiones duraderas y resistentes con acabados ultra-naturales o artísticos.</p>
+                    </div>
+                </div>
+
+                <!-- Bento Item 4 -->
+                <div class="bg-secondary rounded-3xl p-8 bento-item border border-fuchsia-100 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-3xl mb-6">
+                        <i class="fa-solid fa-brush"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Semipermanente</h3>
+                        <p class="text-slate-600">Color vibrante y brillo espejo por más de 15 días sin maltratar tu uña natural.</p>
+                    </div>
+                </div>
+
+                <!-- Bento Item 5 -->
+                <div class="bg-slate-50 rounded-3xl p-8 bento-item border border-slate-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-slate-900 text-white rounded-2xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Nail Art Personalizado</h3>
+                        <p class="text-slate-600">Diseños hechos a mano, desde minimalismo elegante hasta creaciones complejas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUÉ ELEGIRNOS (Split Screen) -->
+    <section id="nosotros" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="font-heading text-4xl font-bold text-slate-900 mb-8 leading-tight">Por qué somos la mejor opción en Laureles</h2>
+                    <p class="text-lg text-slate-600 mb-10">Nos enfocamos en la salud de tus uñas y la excelencia en el detalle. No es solo estética, es tu momento de cuidado personal.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm border border-fuchsia-100 flex items-center justify-center text-primary">
+                                <i class="fa-solid fa-check-double text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Bioseguridad Total</h4>
+                                <p class="text-slate-600">Instrumentos esterilizados y protocolos estrictos para tu seguridad.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm border border-fuchsia-100 flex items-center justify-center text-primary">
+                                <i class="fa-solid fa-award text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Expertas Certificadas</h4>
+                                <p class="text-slate-600">Nuestro equipo está en constante formación en tendencias globales.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm border border-fuchsia-100 flex items-center justify-center text-primary">
+                                <i class="fa-solid fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Insumos de Lujo</h4>
+                                <p class="text-slate-600">Usamos las marcas más prestigiosas que cuidan la integridad de tu uña.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative" data-aos="fade-left">
+                    <div class="absolute -inset-4 bg-primary/20 rounded-[2rem] blur-2xl"></div>
+                    <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=800&q=80" alt="Nail Salon Interior" class="relative rounded-3xl shadow-2xl object-cover w-full aspect-[4/5]">
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-fuchsia-50">
+                        <p class="text-4xl font-bold text-primary mb-1 italic">10+</p>
+                        <p class="text-sm font-bold text-slate-500 uppercase tracking-tighter">Años de experiencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-4xl font-bold text-slate-900 mb-4 italic">Lo que dicen nuestras clientas</h2>
+                <div class="w-16 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="bg-secondary p-8 rounded-3xl border border-fuchsia-100 shadow-sm flex flex-col justify-between" data-aos="fade-up">
+                    <p class="text-slate-700 italic mb-8">"Llevo meses viniendo a Cristina Sierra Nail y siempre salgo feliz. La atención al detalle es impecable y los diseños de Nail Art son fuera de serie."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">MP</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Mariana Posada</p>
+                            <div class="text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-xl flex flex-col justify-between text-white" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-slate-300 italic mb-8">"El mejor lugar en Laureles. El ambiente es súper relajante y el esmaltado semipermanente me dura perfecto más de 20 días. ¡Recomendadísimo!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-slate-900 font-bold">VG</div>
+                        <div>
+                            <p class="font-bold">Valentina Gutiérrez</p>
+                            <div class="text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="bg-secondary p-8 rounded-3xl border border-fuchsia-100 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-slate-700 italic mb-8">"Excelente servicio y mucha limpieza. Las chicas son muy profesionales y amables. Me encanta que usen productos de tan buena calidad."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">CR</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Carolina Restrepo</p>
+                            <div class="text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACIÓN & CONTACTO -->
+    <section id="contacto" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h2 class="font-heading text-4xl font-bold text-slate-900 mb-8 leading-tight italic underline decoration-primary/30">Visítanos en Laureles</h2>
+                    
+                    <div class="space-y-8 mb-10">
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-location-dot text-primary text-2xl mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-lg mb-1">Dirección</h5>
+                                <p class="text-slate-600">Cl 36 #80B 59, Laureles - Estadio, Medellín, Antioquia, Colombia</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-clock text-primary text-2xl mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-lg mb-1">Horarios de Atención</h5>
+                                <ul class="text-slate-600 space-y-1">
+                                    <li><span class="font-medium text-slate-900">Lunes - Viernes:</span> 9:00 AM - 6:00 PM</li>
+                                    <li><span class="font-medium text-slate-900">Sábado:</span> 9:00 AM - 2:00 PM</li>
+                                    <li class="italic text-slate-400">Domingos y festivos: Cerrado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-phone text-primary text-2xl mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-lg mb-1">Teléfono</h5>
+                                <p class="text-slate-600">+57 604 4238452</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://wa.me/576044238452" target="_blank" class="px-8 py-4 bg-[#25D366] text-white rounded-2xl font-bold shadow-lg hover:bg-[#20ba5a] transition-all flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Agendar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-[450px] rounded-3xl shadow-2xl overflow-hidden border-8 border-white" data-aos="fade-left">
+                    <iframe src="https://www.google.com/maps?q=Cristina+Sierra+Nail+-+Laureles+Cl+36+%2380B+59%2C+Laureles+-+Estadio%2C+Medell%C3%ADn%2C+Laureles%2C+Medell%C3%ADn%2C+Antioquia%2C+Colombia&hl=es&z=14&output=embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div>
+                    <span class="font-heading text-3xl font-bold text-primary italic mb-6 block">Cristina Sierra</span>
+                    <p class="text-slate-400 leading-relaxed mb-6">Expertas en el cuidado y diseño de uñas. Un oasis de belleza y tranquilidad para ti en Medellín.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6 uppercase tracking-widest text-accent">Navegación</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="#inicio" class="hover:text-primary transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-primary transition-colors">Servicios</a></li>
+                        <li><a href="#nosotros" class="hover:text-primary transition-colors">Por qué Elegirnos</a></li>
+                        <li><a href="#contacto" class="hover:text-primary transition-colors">Ubicación</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6 uppercase tracking-widest text-accent">Contacto Directo</h4>
+                    <p class="text-slate-400 mb-2">Medellín, Laureles, CO</p>
+                    <p class="text-slate-400 mb-6 italic">Cl 36 #80B 59</p>
+                    <p class="text-2xl font-bold text-white mb-2">+57 604 4238452</p>
+                    <a href="mailto:info@cristinasierranail.com" class="text-primary hover:underline">info@cristinasierranail.com</a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+                <p>&copy; 2025 Cristina Sierra Nail - Laureles. Todos los derechos reservados. | Diseñado con <i class="fa-solid fa-heart text-primary mx-1"></i> para resaltar tu belleza.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP BUTTON -->
+    <a href="https://wa.me/576044238452" target="_blank" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition-transform animate-bounce-slow" style="animation: pulse 2s infinite;">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // WhatsApp pulse custom animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes pulse {
+                0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+                70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
+<!-- HookLoop Tracking Widget -->
+<script
+  src="https://hookloop-api.onrender.com/static/widget.js"
+  data-workspace-id="ccb07c00-9d94-47ac-8fb9-5cd7124cbbf4"
+  data-artifact-id="1bc34345-7626-4421-91bb-003545c56cea"
+  data-lead-id="e77f5e1b-524d-41cf-8fa1-c6bff3d45ef7"
+  async>
+</script>
+</body>
+</html>
